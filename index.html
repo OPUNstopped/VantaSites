@@ -24,7 +24,7 @@
 <script>
 (function(){var r=document.documentElement;r.classList.add("js");var t=null;
 try{t=localStorage.getItem("ms-theme")}catch(e){}
-if(t!=="dark"&&t!=="light"){try{t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}catch(e2){t="light"}}
+if(t!=="dark"&&t!=="light"){t="light"}
 r.setAttribute("data-theme",t);
 var m=document.getElementById("metaTheme");
 if(m){m.setAttribute("content",t==="dark"?"#14100A":"#FBF6EE")}
@@ -1059,7 +1059,7 @@ function applyTheme(t){
   if(metaTheme){metaTheme.setAttribute("content",t==="dark"?"#14100A":"#FBF6EE");}
 }
 var saved=store?store.getItem("ms-theme"):null;
-applyTheme(saved||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+applyTheme(saved||"light");
 var themeBtn=d.getElementById("themeBtn");
 if(themeBtn){themeBtn.addEventListener("click",function(){
   var next=root.getAttribute("data-theme")==="dark"?"light":"dark";
