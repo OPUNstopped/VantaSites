@@ -1,1449 +1,1237 @@
 <!DOCTYPE html>
-<!-- MeliaSites - Live on GitHub Pages 2026-05-01 -->
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="MeliaSites — Professional Websites That Work For You. Serving Johns Creek & Alpharetta, Georgia." />
-  <title>MeliaSites — Professional Websites That Work For You</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MeliaSites — Web Design Studio · Johns Creek &amp; Alpharetta, GA</title>
+<meta name="description" content="MeliaSites builds fast, hand-coded websites for small businesses across North Atlanta. Flat pricing from $597, two-week delivery, and a real person who picks up the phone. Johns Creek & Alpharetta, GA.">
+<link rel="canonical" href="https://meliasites.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://meliasites.com/">
+<meta property="og:site_name" content="MeliaSites">
+<meta property="og:title" content="MeliaSites — Web Design Studio · Johns Creek &amp; Alpharetta, GA">
+<meta property="og:description" content="Hand-coded, fast-loading websites for small businesses. Flat pricing from $597, two-week delivery, and a real person who picks up the phone.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MeliaSites — Web Design Studio">
+<meta name="twitter:description" content="Hand-coded websites for small businesses in North Atlanta. Flat pricing, two-week delivery.">
+<meta name="theme-color" id="metaTheme" content="#FBF6EE">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B4441F'/%3E%3Ctext x='8' y='46' font-family='Georgia,serif' font-size='38' fill='%23FBF6EE'%3E%5B%3C/text%3E%3Ctext x='40' y='46' font-family='Georgia,serif' font-size='38' fill='%23FBF6EE'%3E%5D%3C/text%3E%3Ccircle cx='32' cy='40' r='6' fill='%23FBF6EE'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+<script>
+(function(){var r=document.documentElement;r.classList.add("js");var t=null;
+try{t=localStorage.getItem("ms-theme")}catch(e){}
+if(t!=="dark"&&t!=="light"){try{t=window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}catch(e2){t="light"}}
+r.setAttribute("data-theme",t);
+var m=document.getElementById("metaTheme");
+if(m){m.setAttribute("content",t==="dark"?"#14100A":"#FBF6EE")}
+})();
+</script>
+<style>
+/* ============ TOKENS ============ */
+:root{
+  /* palette — clay & parchment */
+  --clay:#B4441F;          /* primary terracotta (brick-leaning) */
+  --clay-bright:#D25A2E;   /* hover / gradients */
+  --ember:#8A2F12;         /* dark clay, small text links */
+  --parchment:#FBF6EE;     /* page background */
+  --oat:#F2E7D6;           /* alternate section / tint */
+  --surface:#FFFCF6;       /* cards */
+  --ink:#241711;           /* warm near-black */
+  --ink-2:#6E5A4C;         /* muted copy */
+  --line:rgba(36,23,17,.13);
+  --shadow:0 18px 40px -18px rgba(74,32,12,.28);
+  --shadow-sm:0 8px 22px -12px rgba(74,32,12,.22);
+  --cream-on-clay:#FDF3EA;
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  /* type */
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;
 
-  <!-- Firebase — shared reviews database -->
-  <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-    import { getFirestore, collection, addDoc, getDocs, query, orderBy, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+  /* rhythm */
+  --pad:clamp(20px,5vw,40px);
+  --sect:clamp(72px,11vw,128px);
+  --r:18px;
+  --header-h:68px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+html[data-theme="dark"]{
+  --clay:#E0653A;
+  --clay-bright:#EE7A4E;
+  --ember:#F09468;
+  --parchment:#14100A;
+  --oat:#1E150D;
+  --surface:#2A1D13;
+  --ink:#F6EDE1;
+  --ink-2:#C9B3A1;
+  --line:rgba(246,237,225,.17);
+  --shadow:0 18px 40px -18px rgba(0,0,0,.55);
+  --shadow-sm:0 8px 22px -12px rgba(0,0,0,.5);
+  --cream-on-clay:#FFF4EB;
+}
 
-    /*
-    ════════════════════════════════════════════════════════════
-    FIREBASE SETUP — one-time, takes 3 minutes:
+/* ============ RESET / BASE ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{
+  font-family:var(--body);
+  font-size:1.0625rem;line-height:1.65;
+  color:var(--ink);background:var(--parchment);
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .35s ease,color .35s ease;
+}
+img,svg{display:block;max-width:100%}
+a{color:var(--ember);text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+section{scroll-margin-top:calc(var(--header-h) + 12px)}
+::selection{background:var(--clay);color:var(--cream-on-clay)}
+:focus-visible{outline:3px solid var(--clay);outline-offset:3px;border-radius:6px}
 
-    1. Go to https://console.firebase.google.com
-    2. Click "Add project" → name it "meliasites" → Continue
-    3. Disable Google Analytics (not needed) → Create project
-    4. Click "Firestore Database" in the left sidebar → Create database
-       → Start in TEST MODE → choose any location → Enable
-    5. Click the "</>" (Web) icon on the Project Overview page
-    6. Register app as "meliasites-web" → copy the firebaseConfig object
-    7. Replace the placeholder config below with YOUR values
-    8. Done — reviews now save globally for all visitors!
-    ════════════════════════════════════════════════════════════
-    */
-    const firebaseConfig = {
-      apiKey:            "PASTE_YOUR_API_KEY",
-      authDomain:        "PASTE_YOUR_AUTH_DOMAIN",
-      projectId:         "PASTE_YOUR_PROJECT_ID",
-      storageBucket:     "PASTE_YOUR_STORAGE_BUCKET",
-      messagingSenderId: "PASTE_YOUR_MESSAGING_SENDER_ID",
-      appId:             "PASTE_YOUR_APP_ID"
-    };
+.wrap{
+  max-width:1140px;margin-inline:auto;
+  padding-inline:calc(var(--pad) + env(safe-area-inset-left)) calc(var(--pad) + env(safe-area-inset-right));
+}
+.skip{
+  position:fixed;top:-60px;left:16px;z-index:200;
+  background:var(--ink);color:var(--parchment);
+  padding:12px 18px;border-radius:10px;transition:top .25s;
+}
+.skip:focus{top:calc(12px + env(safe-area-inset-top))}
 
-    const app = initializeApp(firebaseConfig);
-    const db  = getFirestore(app);
+/* ============ TYPE ============ */
+h1,h2,h3{font-family:var(--disp);font-weight:600;line-height:1.08;letter-spacing:-.015em;text-wrap:balance}
+h1{font-size:clamp(2.7rem,8.2vw,4.7rem)}
+h2{font-size:clamp(2.05rem,5.4vw,3.1rem)}
+h3{font-size:clamp(1.2rem,2.6vw,1.45rem);line-height:1.25}
+.lede{color:var(--ink-2);font-size:clamp(1.05rem,2.4vw,1.22rem);max-width:56ch}
+.em{font-style:italic;color:var(--clay)}
 
-    /* Expose helpers to the global scope so the rest of the
-       (non-module) script can call them */
-    window._db         = db;
-    window._collection = collection;
-    window._addDoc     = addDoc;
-    window._getDocs    = getDocs;
-    window._query      = query;
-    window._orderBy    = orderBy;
-    window._onSnapshot = onSnapshot;
-    window._fbReady    = true;
+/* mono bracket eyebrow — the section marker system */
+.eyebrow{
+  font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;
+  text-transform:lowercase;color:var(--clay);
+  display:inline-flex;align-items:center;gap:.55em;margin-bottom:18px;
+}
+.eyebrow::before{content:"["}
+.eyebrow::after{content:"]"}
+.eyebrow::before,.eyebrow::after{color:var(--ink-2);font-weight:400}
 
-    /* Auto-render as soon as Firebase is ready */
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof window.initReviews === 'function') window.initReviews();
-    });
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet" />
+.sect-head{max-width:720px;margin-bottom:clamp(36px,6vw,56px)}
+.sect-head .lede{margin-top:14px}
 
-  <style>
-    /* ═══ TOKENS ════════════════════════════════════════════ */
-    :root {
-      --cream:    #FAFAF7;
-      --cream2:   #F2F1EC;
-      --ink:      #1A1A18;
-      --ink2:     #2C2C28;
-      --ink3:     #6B6B63;
-      --amber:    #C4603A;
-      --amber2:   #D4704A;
-      --amber-g:  rgba(196,96,58,.09);
-      --rule:     #E2E2DC;
-      --card-bg:  #FFFFFF;
-      --shadow:   0 2px 24px rgba(26,26,24,.06);
-      --shadow-h: 0 12px 48px rgba(26,26,24,.11);
-    }
-    [data-theme="dark"] {
-      --cream:    #141412;
-      --cream2:   #1C1C1A;
-      --ink:      #F0EFE8;
-      --ink2:     #C8C7BE;
-      --ink3:     #7A7A70;
-      --amber:    #D4704A;
-      --amber2:   #E08060;
-      --amber-g:  rgba(212,112,74,.10);
-      --rule:     #2A2A28;
-      --card-bg:  #1A1A18;
-      --shadow:   0 2px 24px rgba(0,0,0,.28);
-      --shadow-h: 0 12px 48px rgba(0,0,0,.45);
-    }
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.55em;
+  min-height:50px;padding:13px 26px;border-radius:13px;
+  font-weight:600;font-size:1rem;line-height:1.2;
+  touch-action:manipulation;user-select:none;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s,color .25s,border-color .25s;
+  will-change:transform;
+}
+.btn-primary{background:var(--clay);color:var(--cream-on-clay);box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--clay-bright);transform:translateY(-3px);box-shadow:var(--shadow)}
+.btn-primary:active{transform:translateY(-1px)}
+.btn-primary svg{transition:transform .25s var(--ease)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{border:1.5px solid var(--line);color:var(--ink);position:relative}
+.btn-ghost::before,.btn-ghost::after{
+  font-family:var(--mono);color:var(--clay);opacity:0;
+  transition:opacity .25s var(--ease),transform .25s var(--ease);
+}
+.btn-ghost::before{content:"[";transform:translateX(6px)}
+.btn-ghost::after{content:"]";transform:translateX(-6px)}
+.btn-ghost:hover{border-color:var(--clay)}
+.btn-ghost:hover::before,.btn-ghost:hover::after{opacity:1;transform:translateX(0)}
+.btn-lg{min-height:56px;padding:16px 32px;font-size:1.08rem;border-radius:15px}
+.btn-cream{background:var(--cream-on-clay);color:#8A2F12;box-shadow:var(--shadow-sm)}
+.btn-cream:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.btn-outline-cream{border:1.5px solid rgba(253,243,234,.55);color:var(--cream-on-clay)}
+.btn-outline-cream:hover{border-color:var(--cream-on-clay);background:rgba(253,243,234,.1)}
 
-    /* ═══ BASE ══════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Epilogue', sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      transition: background .4s, color .4s;
-      overflow-x: hidden;
-    }
-    ::selection { background: var(--amber); color: #fff; }
-    .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: .02em; line-height: .95; }
-    .serif   { font-family: 'Lora', Georgia, serif; }
+/* ============ HEADER ============ */
+.site-header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding-top:env(safe-area-inset-top);
+  transition:background .3s ease,box-shadow .3s ease,border-color .3s ease;
+  border-bottom:1px solid transparent;
+}
+.site-header.scrolled{
+  background:color-mix(in srgb,var(--parchment) 86%,transparent);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  border-color:var(--line);
+}
+.nav-bar{
+  height:var(--header-h);display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.logo{
+  display:inline-flex;align-items:baseline;gap:.12em;
+  font-family:var(--disp);font-weight:600;font-size:1.32rem;color:var(--ink);
+  min-height:44px;align-items:center;
+}
+.logo .brk{color:var(--clay);font-weight:500;transform:translateY(-1px)}
+.logo .dot{
+  width:.42em;height:.42em;border-radius:50%;background:var(--clay);
+  display:inline-block;margin-left:.14em;
+  animation:blink 1.15s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
 
-    /* ═══ NAV ═══════════════════════════════════════════════ */
-    #nav {
-      position: fixed; top: 0; inset-x: 0; z-index: 100;
-      background: color-mix(in srgb, var(--cream) 90%, transparent);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid transparent;
-      transition: border-color .3s, background .4s;
-    }
-    #nav.scrolled { border-color: var(--rule); }
-    .nav-inner {
-      max-width: 1280px; margin: 0 auto; padding: 0 32px;
-      height: 64px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo-mark {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.6rem; letter-spacing: .06em;
-      color: var(--ink); text-decoration: none;
-    }
-    .logo-mark span { color: var(--amber); }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a {
-      font-size: .78rem; font-weight: 500;
-      letter-spacing: .1em; text-transform: uppercase;
-      color: var(--ink3); text-decoration: none;
-      transition: color .2s; white-space: nowrap;
-    }
-    .nav-links a:hover { color: var(--amber); }
+.nav-links{display:none;align-items:center;gap:6px;list-style:none}
+.nav-links a{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+  color:var(--ink);font-weight:500;font-size:.95rem;border-radius:10px;
+  position:relative;transition:color .2s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:14px;right:14px;bottom:8px;height:2px;
+  background:var(--clay);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.nav-links a:hover{color:var(--clay)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{display:none}
+.head-actions{display:flex;align-items:center;gap:8px}
 
-    /* Reviews count badge in nav */
-    .reviews-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      position: relative;
-    }
-    .reviews-badge .badge-dot {
-      background: var(--amber);
-      color: #fff;
-      font-size: .55rem; font-weight: 700;
-      min-width: 16px; height: 16px;
-      border-radius: 8px; padding: 0 4px;
-      display: flex; align-items: center; justify-content: center;
-      transition: transform .2s;
-    }
-    .reviews-badge:hover .badge-dot { transform: scale(1.15); }
+.theme-btn,.menu-btn{
+  width:46px;height:46px;border-radius:12px;border:1.5px solid var(--line);
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--ink);transition:border-color .25s,transform .25s var(--ease);
+  touch-action:manipulation;
+}
+.theme-btn:hover,.menu-btn:hover{border-color:var(--clay);transform:translateY(-2px)}
+.theme-btn .moon{display:none}
+html[data-theme="dark"] .theme-btn .sun{display:none}
+html[data-theme="dark"] .theme-btn .moon{display:block}
 
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--ink); color: var(--cream);
-      font-size: .75rem; font-weight: 600;
-      letter-spacing: .08em; text-transform: uppercase;
-      padding: 10px 22px; border: none; cursor: pointer;
-      text-decoration: none;
-      transition: background .2s, transform .2s;
-    }
-    .nav-cta:hover { background: var(--amber); transform: translateY(-1px); }
-    .theme-btn {
-      width: 36px; height: 36px;
-      background: none; border: 1px solid var(--rule);
-      color: var(--ink3); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      font-size: .85rem; transition: border-color .2s, color .2s;
-    }
-    .theme-btn:hover { border-color: var(--amber); color: var(--amber); }
+.menu-btn span{
+  position:absolute;width:20px;height:2px;background:currentColor;border-radius:2px;
+  transition:transform .3s var(--ease),opacity .2s;
+}
+.menu-btn{position:relative}
+.menu-btn span:nth-child(1){transform:translateY(-6px)}
+.menu-btn span:nth-child(3){transform:translateY(6px)}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:rotate(-45deg)}
 
-    /* Mobile nav */
-    #m-nav {
-      max-height: 0; overflow: hidden;
-      background: var(--cream2); border-top: 1px solid var(--rule);
-      transition: max-height .4s ease, background .4s;
-    }
-    #m-nav.open { max-height: 480px; }
-    #m-nav a {
-      display: block; padding: 12px 32px;
-      font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500;
-      color: var(--ink3); text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      transition: color .2s, background .2s;
-    }
-    #m-nav a:hover { color: var(--amber); background: var(--amber-g); }
+/* mobile menu overlay */
+.mobile-menu{
+  position:fixed;inset:0;z-index:90;background:var(--parchment);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:calc(var(--header-h) + env(safe-area-inset-top)) calc(28px + env(safe-area-inset-left)) calc(28px + env(safe-area-inset-bottom)) calc(28px + env(safe-area-inset-right));
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s;
+}
+.mobile-menu.open{opacity:1;visibility:visible}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.mobile-menu a{
+  display:flex;align-items:center;gap:.4em;min-height:52px;
+  font-family:var(--disp);font-size:clamp(1.7rem,7vw,2.2rem);font-weight:600;color:var(--ink);
+  opacity:0;transform:translateY(16px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease),color .2s;
+  transition-delay:var(--d,0ms);
+}
+.mobile-menu.open a{opacity:1;transform:none}
+.mobile-menu a .idx{font-family:var(--mono);font-size:.85rem;color:var(--clay)}
+.mobile-menu a:active{color:var(--clay)}
+.mobile-menu .menu-call{
+  margin-top:auto;opacity:0;transform:translateY(16px);
+  transition:opacity .45s var(--ease) 320ms,transform .45s var(--ease) 320ms;
+}
+.mobile-menu.open .menu-call{opacity:1;transform:none}
+body.no-scroll{overflow:hidden}
+</style>
+<style>
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding-top:calc(var(--header-h) + env(safe-area-inset-top) + clamp(40px,7vw,84px));
+  padding-bottom:clamp(48px,7vw,88px);
+  overflow:clip;
+}
+.hero-grid{display:grid;gap:44px;align-items:center}
+.hero-copy{position:relative;z-index:2;max-width:640px}
+.hero h1{margin:14px 0 20px}
+.hero .lede{margin-bottom:30px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.type-wrap{white-space:nowrap}
+.caret{
+  display:inline-block;width:.5em;height:.92em;margin-left:.06em;
+  background:var(--clay);vertical-align:-0.08em;border-radius:2px;
+  animation:blink 1s steps(1) infinite;
+}
+.caret.done{animation:blink 1.15s steps(1) infinite}
+.client-strip{
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--ink-2);
+}
+.client-strip b{color:var(--clay);font-weight:500}
 
-    /* ═══ SCROLL REVEAL ════════════════════════════════════ */
-    .sr  { opacity:0; transform:translateY(32px); transition:opacity .8s ease,transform .8s ease; }
-    .sr-l{ opacity:0; transform:translateX(-32px);transition:opacity .8s ease,transform .8s ease; }
-    .sr-r{ opacity:0; transform:translateX(32px); transition:opacity .8s ease,transform .8s ease; }
-    .sr.in,.sr-l.in,.sr-r.in { opacity:1; transform:none; }
-    .d1{transition-delay:.06s}.d2{transition-delay:.12s}.d3{transition-delay:.18s}
-    .d4{transition-delay:.24s}.d5{transition-delay:.30s}.d6{transition-delay:.36s}
+/* giant background brackets */
+.hero-brk{
+  position:absolute;z-index:0;font-family:var(--disp);font-weight:500;
+  font-size:clamp(16rem,34vw,30rem);line-height:1;color:var(--clay);
+  opacity:.07;pointer-events:none;user-select:none;
+}
+.hero-brk.l{top:-6%;left:-2%}
+.hero-brk.r{bottom:-14%;right:0}
+.hero-brk .inner{animation:drift 11s ease-in-out infinite alternate}
+.hero-brk.r .inner{animation-delay:-5s}
+@keyframes drift{from{transform:translateY(-14px)}to{transform:translateY(14px)}}
 
-    /* ═══ HELPERS ═══════════════════════════════════════════ */
-    .eyebrow {
-      font-size: .68rem; font-weight: 600;
-      letter-spacing: .22em; text-transform: uppercase; color: var(--amber);
-    }
-    .h-rule { width: 100%; height: 1px; background: var(--rule); }
+/* self-building website (desktop only) */
+.hero-visual{display:none;position:relative;z-index:1;height:460px}
+.builder{
+  position:absolute;top:22px;left:5%;width:90%;max-width:440px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  box-shadow:0 34px 80px -32px rgba(36,23,17,.4);overflow:hidden;
+  animation:bfloat 8s ease-in-out infinite alternate;
+}
+@keyframes bfloat{from{transform:rotate(1.6deg) translateY(0)}to{transform:rotate(1.6deg) translateY(-14px)}}
+.builder .bar{display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;background:var(--oat);border-bottom:1px solid var(--line)}
+.builder .bar i{width:8px;height:8px;border-radius:50%;background:var(--ink-2);opacity:.4}
+.builder .url{font-family:var(--mono);font-size:.62rem;color:var(--ink-2);margin-left:8px;overflow:hidden;white-space:nowrap;width:0;animation:urltype 9s steps(16,end) infinite}
+@keyframes urltype{0%,3%{width:0}16%,100%{width:16ch}}
+.canvas{position:relative;height:318px;padding:16px;display:flex;flex-direction:column;gap:11px}
+.b-el{position:relative;border-radius:9px;opacity:0;animation:bstage 9s var(--ease) infinite;animation-delay:var(--bd,0s)}
+.b-el::after{content:"";position:absolute;inset:0;border-radius:inherit;background:var(--clay);opacity:0;animation:bflash 9s linear infinite;animation-delay:var(--bd,0s);pointer-events:none}
+@keyframes bstage{0%{opacity:0;transform:translateY(12px) scale(.985)}5%{opacity:1;transform:none}86%{opacity:1}94%,100%{opacity:0}}
+@keyframes bflash{0%{opacity:0}1.5%{opacity:.8}6.5%{opacity:0}100%{opacity:0}}
+.b-nav{--bd:.35s;height:30px;background:var(--oat);display:flex;align-items:center;gap:9px;padding:0 11px}
+.b-nav i{width:11px;height:11px;border-radius:50%;background:var(--clay)}
+.b-nav span{width:26px;height:6px;border-radius:3px;background:var(--ink-2);opacity:.35}
+.b-nav b{margin-left:auto;width:44px;height:15px;border-radius:20px;background:var(--clay)}
+.b-hero{--bd:1.15s;padding:14px 4px 4px;display:flex;flex-direction:column;gap:9px}
+.b-h1{height:17px;width:80%;border-radius:4px;background:var(--ink)}
+.b-h1.s{height:10px;width:56%;background:var(--ink-2);opacity:.5}
+.b-btn{margin-top:5px;width:92px;height:26px;border-radius:20px;background:var(--clay)}
+.b-tiles{display:flex;gap:11px}
+.b-tile{flex:1;height:72px;background:var(--oat);border:1px solid var(--line)}
+.b-tile:nth-child(1){--bd:2.5s}.b-tile:nth-child(2){--bd:2.9s}.b-tile:nth-child(3){--bd:3.3s}
+.b-tile i{display:block;margin:12px auto 0;width:26px;height:26px;border-radius:8px;background:color-mix(in srgb,var(--clay) 22%,var(--oat))}
+.b-foot{--bd:4s;margin-top:auto;height:22px;background:var(--oat)}
+.b-badge{--bd:4.8s;position:absolute;right:14px;bottom:16px;padding:7px 12px;border-radius:20px;background:var(--ink);color:var(--parchment);font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;opacity:0;animation:bbadge 9s var(--ease) infinite;animation-delay:var(--bd)}
+@keyframes bbadge{0%{opacity:0;transform:scale(.55)}4%{opacity:1;transform:scale(1.12)}7%{transform:scale(1)}86%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.85)}}
 
-    /* ═══ SERVICE CARDS ═════════════════════════════════════ */
-    .svc-card {
-      background: var(--card-bg); border: 1px solid var(--rule);
-      padding: 32px; position: relative; overflow: hidden;
-      transition: border-color .3s, box-shadow .3s, transform .3s, background .4s;
-    }
-    .svc-card::before {
-      content:''; position:absolute; bottom:0; left:0;
-      width:0; height:3px; background:var(--amber);
-      transition:width .4s ease;
-    }
-    .svc-card:hover { border-color:var(--amber); box-shadow:var(--shadow-h); transform:translateY(-3px); }
-    .svc-card:hover::before { width:100%; }
-    .big-num {
-      font-family:'Bebas Neue',sans-serif; font-size:5rem; line-height:1;
-      color:var(--amber); opacity:.15;
-      position:absolute; top:-12px; right:12px;
-      pointer-events:none; user-select:none;
-    }
+/* ============ STATS ============ */
+.stats{background:var(--oat);border-block:1px solid var(--line)}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:28px 18px;padding-block:clamp(36px,6vw,58px);
+}
+.stat .num{
+  font-family:var(--disp);font-weight:600;font-size:clamp(2.2rem,6vw,3.2rem);
+  line-height:1;color:var(--clay);font-variant-numeric:tabular-nums;
+}
+.stat .lbl{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--ink-2);margin-top:8px;text-transform:lowercase}
 
-    /* ═══ PORTFOLIO ════════════════════════════════════════ */
-    .port-wrap { position:relative; overflow:hidden; }
-    .port-wrap img { width:100%; height:220px; object-fit:cover; display:block; transition:transform .6s ease; filter:grayscale(20%); }
-    .port-wrap:hover img { transform:scale(1.06); filter:grayscale(0%); }
-    .port-tag {
-      position:absolute; top:14px; left:14px;
-      background:var(--ink); color:var(--cream);
-      font-size:.6rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; padding:4px 10px;
-    }
-    .port-overlay {
-      position:absolute; inset:0;
-      background:linear-gradient(to top,rgba(26,26,24,.8) 0%,transparent 60%);
-      opacity:0; transition:opacity .4s;
-      display:flex; align-items:flex-end; padding:20px;
-    }
-    .port-wrap:hover .port-overlay { opacity:1; }
+/* ============ SECTIONS / CARDS ============ */
+.section{padding-block:var(--sect)}
+.section.tint{background:var(--oat)}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(24px,4vw,32px);position:relative;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s;
+  will-change:transform;
+}
+.card::before,.card::after{
+  content:"";position:absolute;width:16px;height:16px;
+  border:2px solid var(--clay);opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);
+  pointer-events:none;
+}
+.card::before{top:10px;left:10px;border-right:0;border-bottom:0;border-radius:6px 0 0 0;transform:translate(4px,4px)}
+.card::after{bottom:10px;right:10px;border-left:0;border-top:0;border-radius:0 0 6px 0;transform:translate(-4px,-4px)}
+@media (hover:hover){
+  .card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--clay) 45%,var(--line))}
+  .card:hover::before,.card:hover::after{opacity:1;transform:translate(0,0)}
+}
 
-    /* ═══ STAR RATING WIDGET ════════════════════════════════ */
-    .star-row { display:flex; gap:6px; }
-    .star-btn {
-      background:none; border:none; cursor:pointer;
-      font-size:1.6rem; color:var(--rule);
-      transition:color .15s, transform .15s;
-      padding:0; line-height:1;
-    }
-    .star-btn:hover,
-    .star-btn.active { color:var(--amber); transform:scale(1.15); }
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;gap:16px}
+.svc .tag{
+  font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--clay);
+  display:inline-block;margin-bottom:14px;
+}
+.svc .ic{
+  width:46px;height:46px;border-radius:12px;background:color-mix(in srgb,var(--clay) 12%,transparent);
+  color:var(--clay);display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.svc h3{margin-bottom:10px}
+.svc p{color:var(--ink-2);font-size:.98rem}
+.svc-cta{
+  background:var(--clay);border-color:var(--clay);color:var(--cream-on-clay);
+  display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:12px;
+}
+.svc-cta h3,.svc-cta p{color:var(--cream-on-clay)}
+.svc-cta p{opacity:.88}
+.svc-cta::before,.svc-cta::after{border-color:var(--cream-on-clay)}
 
-    /* ═══ REVIEWS MODAL ═════════════════════════════════════ */
-    #reviews-modal {
-      position:fixed; inset:0; z-index:200;
-      display:flex; align-items:flex-start; justify-content:center;
-      padding:80px 20px 40px;
-      opacity:0; pointer-events:none;
-      transition:opacity .35s ease;
-    }
-    #reviews-modal.open { opacity:1; pointer-events:all; }
-    #modal-backdrop {
-      position:absolute; inset:0;
-      background:rgba(26,26,24,.75);
-      backdrop-filter:blur(6px);
-    }
-    #modal-box {
-      position:relative; z-index:1;
-      background:var(--cream);
-      border:1px solid var(--rule);
-      width:100%; max-width:860px;
-      max-height:80vh;
-      overflow-y:auto;
-      transform:translateY(24px);
-      transition:transform .35s ease, background .4s;
-    }
-    #reviews-modal.open #modal-box { transform:translateY(0); }
-    .modal-header {
-      position:sticky; top:0; z-index:2;
-      background:var(--cream);
-      border-bottom:1px solid var(--rule);
-      padding:24px 32px;
-      display:flex; align-items:center; justify-content:space-between;
-      transition:background .4s;
-    }
-    .modal-close {
-      width:36px; height:36px;
-      background:none; border:1px solid var(--rule);
-      color:var(--ink3); cursor:pointer; font-size:.9rem;
-      display:flex; align-items:center; justify-content:center;
-      transition:border-color .2s, color .2s;
-    }
-    .modal-close:hover { border-color:var(--amber); color:var(--amber); }
+/* ============ WORK ============ */
+.work-grid{display:grid;gap:22px}
+.proj{overflow:hidden;padding:0}
+.frame{border-bottom:1px solid var(--line);overflow:hidden}
+.frame .bar{display:flex;align-items:center;gap:6px;height:34px;padding:0 14px;background:var(--oat);border-bottom:1px solid var(--line)}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:var(--ink-2);opacity:.4}
+.frame .bar .url{font-family:var(--mono);font-size:.68rem;color:var(--ink-2);margin-left:8px}
+.shot{height:230px;padding:20px;display:flex;flex-direction:column;gap:10px;transition:transform .6s var(--ease)}
+@media (hover:hover){.proj:hover .shot{transform:translateY(-12px)}}
+.proj-info{padding:clamp(20px,3.5vw,28px)}
+.proj-info h3{margin-bottom:6px}
+.proj-info .kind{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--clay)}
+.proj-info p{color:var(--ink-2);font-size:.97rem;margin:10px 0 16px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;color:var(--ink-2);
+  border:1px solid var(--line);border-radius:20px;padding:6px 12px;
+}
+/* showcase shots — generic, each with its own ambient animation */
+.shot .t{width:62%;height:16px;border-radius:4px}
+.shot .t.s{width:40%;height:10px;opacity:.65}
 
-    /* Review card inside modal */
-    .rev-card {
-      padding:24px 32px;
-      border-bottom:1px solid var(--rule);
-      transition:background .2s;
-    }
-    .rev-card:last-child { border-bottom:none; }
-    .rev-card:hover { background:var(--amber-g); }
+/* 1 · service business: the phone rings */
+.shot-call{background:var(--parchment)}
+.shot-call .t{background:var(--ink)}
+.shot-call .t.s{background:var(--ink-2)}
+.shot-call .mapblock{margin-top:8px;height:56px;border:1.5px dashed color-mix(in srgb,var(--clay) 55%,transparent);border-radius:10px;position:relative}
+.shot-call .mapblock::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:12px;margin:-14px 0 0 -6px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--clay)}
+.shot-call .callbar{margin-top:auto;display:flex;align-items:center;gap:10px;padding:9px 13px;border-radius:26px;background:var(--clay);color:#fff;font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;width:max-content;animation:callin 5.2s var(--ease) infinite}
+.shot-call .callbar svg{animation:ringring 5.2s ease-in-out infinite;transform-origin:50% 60%}
+@keyframes callin{0%,8%{opacity:0;transform:translateY(14px)}18%,82%{opacity:1;transform:none}92%,100%{opacity:0;transform:translateY(14px)}}
+@keyframes ringring{0%,20%{transform:rotate(0)}23%{transform:rotate(-16deg)}26%{transform:rotate(13deg)}29%{transform:rotate(-9deg)}32%{transform:rotate(5deg)}35%,100%{transform:rotate(0)}}
 
-    /* ═══ FORM FIELDS ═══════════════════════════════════════ */
-    .field {
-      width:100%; background:var(--cream);
-      border:1px solid var(--rule); padding:13px 16px;
-      font-family:'Epilogue',sans-serif; font-size:.875rem; color:var(--ink);
-      outline:none; transition:border-color .2s, box-shadow .2s, background .4s;
-    }
-    .field::placeholder { color:var(--ink3); opacity:.5; }
-    .field:focus { border-color:var(--amber); box-shadow:0 0 0 3px var(--amber-g); }
-    .field-label {
-      font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
-      font-weight:600; color:var(--ink3); display:block; margin-bottom:7px;
-    }
+/* 2 · online store: add-to-cart flies, badge pops */
+.shot-shop{background:var(--oat);position:relative}
+.shot-shop .t{background:var(--ink)}
+.shot-shop .t.s{background:var(--ink-2)}
+.shot-shop .cart{position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink)}
+.shot-shop .cart b{position:absolute;top:-7px;right:-7px;min-width:17px;height:17px;border-radius:50%;background:var(--clay);color:#fff;font-size:.58rem;font-weight:600;display:flex;align-items:center;justify-content:center;animation:cartpop 5.6s var(--ease) infinite}
+@keyframes cartpop{0%,56%{transform:scale(1)}61%{transform:scale(1.5)}67%,100%{transform:scale(1)}}
+.shot-shop .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.shot-shop .grid i{aspect-ratio:1/.82;background:var(--surface);border:1px solid var(--line);border-radius:9px;position:relative}
+.shot-shop .grid i::after{content:"";position:absolute;left:8px;bottom:7px;width:42%;height:6px;border-radius:3px;background:var(--ink-2);opacity:.4}
+.shot-shop .fly{position:absolute;left:22%;bottom:34%;width:11px;height:11px;border-radius:50%;background:var(--clay);opacity:0;animation:flycart 5.6s cubic-bezier(.35,.8,.45,1) infinite}
+@keyframes flycart{0%,42%{opacity:0;transform:none}46%{opacity:1;transform:scale(1.25)}60%{opacity:1;transform:translate(150px,-74px) scale(.45)}62%,100%{opacity:0;transform:translate(150px,-74px) scale(.4)}}
+.shot-shop .pricebar{margin-top:auto;width:120px;height:24px;border-radius:20px;background:var(--ink)}
 
-    /* ═══ COOKIE BANNER ══════════════════════════════════════ */
-    #cookie {
-      position:fixed; bottom:0; inset-x:0; z-index:999;
-      background:var(--ink2);
-      transform:translateY(100%);
-      transition:transform .5s cubic-bezier(.4,0,.2,1);
-    }
-    #cookie.show { transform:translateY(0); }
-    #cookie-inner {
-      max-width:1280px; margin:0 auto; padding:16px 32px;
-      display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap;
-    }
+/* 3 · personal brand: work shimmers, booking confirms */
+.shot-brand{background:#1D1510}
+.shot-brand .t{background:#F2E7D6}
+.shot-brand .t.s{background:#8A796C}
+.shot-brand .strips{display:flex;flex-direction:column;gap:9px;margin-top:8px}
+.shot-brand .strip{height:26px;border-radius:7px;background:#2E241C;position:relative;overflow:hidden}
+.shot-brand .strip::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(242,231,214,.14) 50%,transparent 70%);transform:translateX(-110%);animation:shimmer 4.6s ease-in-out infinite}
+.shot-brand .strip:nth-child(2)::after{animation-delay:.5s}
+.shot-brand .strip:nth-child(3)::after{animation-delay:1s}
+@keyframes shimmer{0%{transform:translateX(-110%)}45%,100%{transform:translateX(110%)}}
+.shot-brand .booked{margin-top:auto;display:flex;align-items:center;gap:8px;width:max-content;padding:8px 13px;border-radius:22px;background:var(--clay);color:#fff;font-family:var(--mono);font-size:.62rem;letter-spacing:.07em;animation:bookpop 6s var(--ease) infinite}
+@keyframes bookpop{0%,30%{opacity:0;transform:scale(.7)}36%{opacity:1;transform:scale(1.1)}40%,86%{opacity:1;transform:scale(1)}94%,100%{opacity:0;transform:scale(.8)}}
 
-    /* ═══ SCROLL TOP / TOAST ════════════════════════════════ */
-    #up {
-      position:fixed; bottom:28px; right:28px; z-index:90;
-      width:44px; height:44px; background:var(--amber); color:#fff; border:none; cursor:pointer;
-      display:flex; align-items:center; justify-content:center; font-size:.85rem;
-      opacity:0; transform:translateY(8px); transition:opacity .3s,transform .3s,background .2s;
-    }
-    #up.show { opacity:1; transform:none; }
-    #up:hover { background:var(--ink); }
-    #toast {
-      position:fixed; top:80px; right:28px; z-index:999;
-      background:var(--ink2); color:var(--cream);
-      border-left:3px solid var(--amber);
-      padding:12px 18px; font-size:.8rem;
-      opacity:0; transform:translateX(24px);
-      transition:opacity .3s,transform .3s;
-      pointer-events:none; max-width:280px;
-    }
-    #toast.show { opacity:1; transform:none; }
+/* ============ PRICING ============ */
+.price-grid{display:grid;gap:18px;align-items:start}
+.plan .name{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:var(--clay);text-transform:lowercase}
+.plan h3{margin:10px 0 4px}
+.plan .amount{font-family:var(--disp);font-weight:600;font-size:clamp(2.1rem,5vw,2.6rem);line-height:1;margin:10px 0 2px}
+.plan .per{font-size:.85rem;color:var(--ink-2)}
+.plan p.blurb{color:var(--ink-2);font-size:.95rem;margin:14px 0 18px}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+.plan li{display:flex;gap:10px;font-size:.95rem;align-items:flex-start}
+.plan li svg{flex:none;margin-top:4px;color:var(--clay)}
+.plan .btn{width:100%}
+.plan.featured{border-color:var(--clay);box-shadow:var(--shadow)}
+.badge{
+  position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+  background:var(--clay);color:var(--cream-on-clay);
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;
+  padding:6px 14px;border-radius:20px;white-space:nowrap;
+}
+.price-note{margin-top:26px;color:var(--ink-2);font-size:.95rem}
+.price-note a{font-weight:600}
+</style>
+<style>
+/* ============ ABOUT / WHY ============ */
+.about-grid{display:grid;gap:44px;align-items:start}
+.why-list{display:flex;flex-direction:column;gap:14px;margin-top:6px}
+.why{
+  display:flex;gap:16px;padding:18px 20px;border:1px solid var(--line);
+  border-radius:14px;background:var(--surface);
+  transition:transform .3s var(--ease),border-color .3s;
+}
+@media (hover:hover){.why:hover{transform:translateX(6px);border-color:color-mix(in srgb,var(--clay) 45%,var(--line))}}
+.why .mk{font-family:var(--mono);color:var(--clay);font-size:.85rem;margin-top:3px;flex:none}
+.why h3{font-size:1.05rem;font-family:var(--body);font-weight:650;margin-bottom:2px}
+.why p{color:var(--ink-2);font-size:.93rem}
+.process{margin-top:clamp(44px,7vw,64px)}
+.steps{display:grid;gap:14px;counter-reset:step}
+.step{position:relative;padding:20px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.step .n{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;color:var(--clay)}
+.step h3{font-size:1.02rem;font-family:var(--body);font-weight:650;margin:8px 0 4px}
+.step p{color:var(--ink-2);font-size:.9rem}
 
-    /* ═══ FOOTER ════════════════════════════════════════════ */
-    footer { background:var(--ink2); color:var(--cream2); transition:background .4s; }
-    [data-theme="dark"] footer { background:#0A0806; }
-    .hero-stat-num { font-family:'Bebas Neue',sans-serif; font-size:3rem; line-height:1; color:var(--amber); }
+/* ============ CONTACT ============ */
+.contact-panel{
+  position:relative;overflow:clip;
+  background:linear-gradient(135deg,var(--clay),var(--ember));
+  color:var(--cream-on-clay);border-radius:28px;
+  padding:clamp(36px,7vw,72px) clamp(24px,5vw,64px);
+}
+html[data-theme="dark"] .contact-panel{background:linear-gradient(135deg,#B4441F,#7C2A0F)}
+html[data-theme="dark"] .svc-cta{background:#B4441F;border-color:#B4441F}
+html[data-theme="dark"] .badge{background:#B4441F}
+.contact-panel::before{
+  content:"";position:absolute;inset:-40%;pointer-events:none;
+  background:radial-gradient(circle at 78% 18%,rgba(255,244,235,.16),transparent 46%);
+}
+.contact-panel .eyebrow{color:var(--cream-on-clay)}
+.contact-panel .eyebrow::before,.contact-panel .eyebrow::after{color:rgba(253,243,234,.6)}
+.contact-panel h2{max-width:14ch}
+.contact-panel .lede{color:rgba(253,243,234,.85);margin:16px 0 30px}
+.phone-big{
+  display:inline-block;font-family:var(--disp);font-weight:600;
+  font-size:clamp(1.9rem,6.5vw,3rem);color:var(--cream-on-clay);
+  letter-spacing:-.01em;margin-bottom:26px;min-height:44px;
+}
+.phone-big:hover{opacity:.9}
+.contact-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:38px}
+.contact-meta{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:22px;padding-top:28px;border-top:1px solid rgba(253,243,234,.28);
+  position:relative;
+}
+.cm .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:lowercase;color:rgba(253,243,234,.65);margin-bottom:6px}
+.cm .v{font-size:.96rem}
+.cm .v a{color:var(--cream-on-clay);text-decoration:underline;text-underline-offset:3px}
 
-    /* Marquee */
-    .marquee-wrap { overflow:hidden; background:var(--amber); padding:14px 0; }
-    .marquee-track {
-      display:flex; animation:marquee 22s linear infinite; width:max-content;
-    }
-    .marquee-track span {
-      font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:.15em;
-      color:#fff; padding:0 40px; display:flex; align-items:center; gap:40px;
-    }
-    .marquee-track span::after { content:'✦'; font-size:.7rem; }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.4} }
+/* ============ FOOTER ============ */
+footer{
+  border-top:1px solid var(--line);
+  padding-top:clamp(40px,6vw,60px);
+  padding-bottom:calc(28px + env(safe-area-inset-bottom));
+}
+.foot-grid{display:grid;gap:34px;margin-bottom:40px}
+.foot-brand p{color:var(--ink-2);font-size:.95rem;max-width:34ch;margin:14px 0 16px}
+.foot-brand .tel{font-weight:650;color:var(--ink);display:inline-flex;min-height:44px;align-items:center}
+.foot-col h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.13em;text-transform:lowercase;color:var(--clay);margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column}
+.foot-col a{color:var(--ink-2);display:inline-flex;min-height:38px;align-items:center;transition:color .2s}
+.foot-col a:hover{color:var(--clay)}
+.foot-base{
+  display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;
+  padding-top:22px;border-top:1px solid var(--line);
+  font-size:.85rem;color:var(--ink-2);
+}
+.socials{display:flex;gap:6px}
+.socials a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:12px;color:var(--ink-2);transition:color .2s,transform .25s var(--ease)}
+.socials a:hover{color:var(--clay);transform:translateY(-2px)}
 
-    /* ═══ RESPONSIVE ═════════════════════════════════════════ */
-    @media(max-width:1024px){
-      .two-col{grid-template-columns:1fr!important}
-      .three-col{grid-template-columns:1fr 1fr!important}
-    }
-    @media(max-width:640px){
-      .three-col{grid-template-columns:1fr!important}
-      .two-col-sm{grid-template-columns:1fr!important}
-      .nav-links,.nav-right-group{display:none!important}
-      .hamburger{display:flex!important}
-      .hidden-mobile{display:none!important}
-      #modal-box{max-height:90vh}
-      .rev-card{padding:16px 20px}
-      .modal-header{padding:16px 20px}
+/* ============ COOL BITS ============ */
+/* scroll progress */
+.progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--clay);transform-origin:0 50%;transform:scaleX(0);z-index:130;pointer-events:none}
+/* services ticker */
+.ticker{margin-top:26px;max-width:440px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ticker-track{display:inline-flex;gap:26px;width:max-content;padding-right:26px;font-family:var(--mono);font-size:.72rem;letter-spacing:.09em;color:var(--ink-2);animation:tickscroll 24s linear infinite}
+@keyframes tickscroll{to{transform:translateX(-50%)}}
+/* hero glow blobs */
+.glow{position:absolute;width:560px;height:560px;border-radius:50%;pointer-events:none;z-index:0;opacity:.55;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,var(--clay) 16%,transparent),transparent 65%)}
+.glow.g1{top:-160px;right:-120px;animation:drifta 16s ease-in-out infinite alternate}
+.glow.g2{bottom:-220px;left:-180px;width:640px;height:640px;background:radial-gradient(circle at 50% 50%,color-mix(in srgb,#C9973F 14%,transparent),transparent 65%);animation:driftb 19s ease-in-out infinite alternate}
+@keyframes drifta{from{transform:translate(0,0) scale(1)}to{transform:translate(-70px,50px) scale(1.12)}}
+@keyframes driftb{from{transform:translate(0,0) scale(1.05)}to{transform:translate(60px,-45px) scale(.95)}}
+html[data-theme="dark"] .glow{opacity:.4}
+/* cursor follower (desktop, JS-gated) */
+.cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:220;border-radius:50%;opacity:0;transition:opacity .3s}
+.cur-dot{width:7px;height:7px;margin:-3.5px 0 0 -3.5px;background:var(--clay)}
+.cur-ring{width:34px;height:34px;margin:-17px 0 0 -17px;border:1.5px solid color-mix(in srgb,var(--clay) 65%,transparent);transition:opacity .3s,width .25s var(--ease),height .25s var(--ease),margin .25s var(--ease),border-color .25s}
+body.cursor-on .cur-dot,body.cursor-on .cur-ring{opacity:1}
+body.cursor-hot .cur-ring{width:52px;height:52px;margin:-26px 0 0 -26px;border-color:var(--clay)}
+/* primary button shine sweep */
+.btn-primary{overflow:hidden}
+.btn-primary::after{content:"";position:absolute;top:0;bottom:0;left:0;width:46%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.34),transparent);transform:translateX(-140%) skewX(-14deg)}
+@media (hover:hover){.btn-primary:hover::after{transition:transform .7s var(--ease);transform:translateX(320%) skewX(-14deg)}}
+/* 3D tilt on showcase cards (JS-gated) */
+@media (hover:hover) and (min-width:940px){
+  .proj:hover{transform:perspective(950px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-6px)}
+  .proj.tilting{transition:box-shadow .35s var(--ease),border-color .35s}
+}
 
-      /* Reduce section padding on small screens */
-      section[style*="padding:100px"]{padding:64px 20px!important}
-      section[style*="padding:96px"]{padding:64px 20px!important}
+/* ============ THEME SWITCH ============ */
+html.theme-snap *,html.theme-snap *::before,html.theme-snap *::after{transition:none !important}
 
-      /* Hero bottom strip — stack CTA below subtext */
-      .hero-bottom-strip{grid-template-columns:1fr!important;gap:24px!important}
-      .hero-bottom-strip > div:last-child{align-items:flex-start!important}
+/* ============ REVIEW FORM ============ */
+.car.solo .car-controls{display:none}
+.rev-form-wrap{margin-top:36px}
+.rev-form{max-width:640px;margin:0 auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,4vw,32px)}
+.rev-form h3{margin-bottom:4px}
+.rev-form .sub{color:var(--ink-2);font-size:.93rem;margin-bottom:18px}
+.demo-note{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;line-height:1.5;color:var(--clay);border:1px dashed color-mix(in srgb,var(--clay) 55%,transparent);border-radius:9px;padding:8px 11px;margin:-4px 0 16px}
+.f-row{display:grid;gap:14px;margin-bottom:14px}
+@media (min-width:560px){.f-row.two{grid-template-columns:1fr 1fr}}
+.f-field label{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.09em;color:var(--ink-2);margin-bottom:7px}
+.f-field input,.f-field textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--oat);color:var(--ink);transition:border-color .2s,box-shadow .2s}
+.f-field input:focus,.f-field textarea:focus{outline:none;border-color:var(--clay);box-shadow:0 0 0 3px color-mix(in srgb,var(--clay) 18%,transparent)}
+.f-field textarea{min-height:118px;resize:vertical}
+.count{margin-top:6px;font-family:var(--mono);font-size:.66rem;color:var(--ink-2);text-align:right}
+.stars-pick{display:flex;flex-direction:row-reverse;justify-content:flex-end;gap:2px}
+.stars-pick label{cursor:pointer;width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:color-mix(in srgb,var(--ink-2) 42%,transparent);transition:color .15s,transform .15s}
+.stars-pick input:checked ~ label{color:var(--clay)}
+@media (hover:hover){
+  .stars-pick label:hover,.stars-pick label:hover ~ label{color:var(--clay-bright)}
+  .stars-pick label:hover{transform:scale(1.15)}
+}
+.stars-pick input:focus-visible + label{outline:2px solid var(--clay);outline-offset:2px;border-radius:8px}
+.hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
+.rev-form .btn{width:100%}
+@media (min-width:560px){.rev-form .btn{width:auto}}
+.f-status{margin-top:12px;font-size:.9rem;min-height:1.4em}
+.f-status.ok{color:#2F7D4F}
+.f-status.err{color:var(--ember)}
+html[data-theme="dark"] .f-status.ok{color:#7FC796}
+html[data-theme="dark"] .f-status.err{color:#E0653A}
+.fine{margin:2px 0 14px;font-size:.76rem;line-height:1.55;color:var(--ink-2)}
+.fine a{color:var(--ember);text-underline-offset:2px}
 
-      /* Hero stats — single column on very small screens */
-      .hero-stats-grid{grid-template-columns:1fr 1fr!important}
+/* ============ REVEAL / MOTION ============ */
+html.js .rv{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+html.js .rv.in{opacity:1;transform:translateY(0)}
+input,textarea,select{font-size:16px;font-family:var(--body)}
 
-      /* Contact section — stack cards */
-      .contact-grid{grid-template-columns:1fr!important;gap:20px!important}
+/* ============ RESPONSIVE ============ */
+@media (min-width:560px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:760px){
+  .stats-grid{grid-template-columns:repeat(4,1fr)}
+  .foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}
+}
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:1.05fr .9fr}
+  .hero-visual{display:block}
+  .nav-links{display:flex}
+  .nav-cta{display:inline-flex}
+  .menu-btn{display:none}
+  .about-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .price-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (min-width:940px){
+  .work-grid{grid-template-columns:repeat(3,1fr)}
+  .svc-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:899px){
+  .hero-brk{font-size:12rem;opacity:.05}
+  .hero-brk.r{display:none}
+}
 
-      /* Leave a review section two-col */
-      .review-grid{grid-template-columns:1fr!important;gap:32px!important}
-
-      /* Reduce padding on call card */
-      .call-card{padding:32px!important}
-
-      /* Nav wrap */
-      .nav-inner{padding:0 20px!important}
-
-      /* Footer grid */
-      .footer-grid{grid-template-columns:1fr 1fr!important;gap:32px!important}
-    }
-    @media(max-width:400px){
-      .hero-stats-grid{grid-template-columns:1fr!important}
-      .hero-stat{border-right:none!important;border-bottom:1px solid var(--rule)}
-      .hero-stat:last-child{border-bottom:none}
-    }
-    @media(min-width:641px){.hamburger{display:none!important}}
-
-    /* ═══ iPHONE / TOUCH FIXES ══════════════════════════════ */
-    * { -webkit-tap-highlight-color: transparent; }
-    a, button { touch-action: manipulation; }
-    input, textarea, select {
-      font-size: 16px !important; /* Prevents iOS zoom on focus */
-      -webkit-appearance: none;
-    }
-    body { -webkit-overflow-scrolling: touch; }
-
-    /* ═══ DARK MODE — fix hardcoded light-on-dark text ════════
-       In dark mode, --ink flips to a light cream (#F0EFE8).
-       Any element with background:var(--ink) that also has
-       hardcoded rgba(250,250,247,...) text needs overriding
-       so text stays readable. We use class .dark-card for this.
-    ════════════════════════════════════════════════════════ */
-    .dark-card {
-      background: var(--ink) !important;
-      transition: background .4s;
-    }
-    /* In dark mode --ink = #F0EFE8 (cream) — swap card to a true dark */
-    [data-theme="dark"] .dark-card {
-      background: #111110 !important;
-    }
-    /* Make all direct text children of dark cards readable in both modes */
-    [data-theme="dark"] .dark-card-text { color: rgba(240,239,232,.75) !important; }
-    [data-theme="dark"] .dark-card-text-faint { color: rgba(240,239,232,.45) !important; }
-    [data-theme="dark"] .dark-card-rule { background: rgba(255,255,255,.1) !important; }
-
-    /* About section — same fix */
-    [data-theme="dark"] #about { background: #0E1410 !important; }
-    [data-theme="dark"] #about .about-body { color: rgba(240,239,232,.6) !important; }
-    [data-theme="dark"] #about .about-rule { border-color: rgba(255,255,255,.1) !important; }
-    [data-theme="dark"] #about .about-stat-label { color: rgba(240,239,232,.35) !important; }
-
-    /* Contact call card */
-    [data-theme="dark"] .call-card { background: #111110 !important; }
-    [data-theme="dark"] .call-card-label { color: rgba(240,239,232,.4) !important; }
-    [data-theme="dark"] .call-card-body { color: rgba(240,239,232,.6) !important; }
-
-    /* Services dark CTA tile */
-    [data-theme="dark"] .svc-dark-tile { background: #111110 !important; }
-    [data-theme="dark"] .svc-dark-tile p { color: rgba(240,239,232,.55) !important; }
-
-    /* Footer */
-    [data-theme="dark"] footer { background: #080807 !important; }
-  </style>
+/* ============ REDUCED MOTION ============ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  html.js .rv{opacity:1;transform:none}
+  .caret{animation:none}
+  .car-track{transition:none}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "MeliaSites",
+  "url": "https://meliasites.com/",
+  "email": "MeliaSites@gmail.com",
+  "telephone": "+1-706-887-8030",
+  "description": "Hand-coded, fast-loading websites for small businesses in Johns Creek, Alpharetta, and North Atlanta. Flat pricing, two-week delivery.",
+  "address": {"@type": "PostalAddress", "addressLocality": "Johns Creek", "addressRegion": "GA", "addressCountry": "US"},
+  "areaServed": ["Johns Creek, GA", "Alpharetta, GA", "North Atlanta, GA"],
+  "priceRange": "$597-$997",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": ["https://www.tiktok.com/@Melia_Sites", "https://www.instagram.com/melia_sites"]
+}
+</script>
 </head>
 <body>
-
-<!-- ══ NAV ══════════════════════════════════════════════════ -->
-<nav id="nav">
-  <div class="nav-inner">
-    <a href="#home" class="logo-mark">Melia<span>Sites</span></a>
-
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#about">About</a>
-      <!-- Reviews nav link with live count badge -->
-      <a href="#" onclick="openReviews(event)" class="reviews-badge" id="nav-reviews-link">
-        Reviews
-        <span class="badge-dot" id="nav-badge">0</span>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cur-ring" id="curRing" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap nav-bar">
+    <a class="logo" href="#top" aria-label="MeliaSites — home">
+      <span class="brk">[</span>MeliaSites<span class="dot" aria-hidden="true"></span><span class="brk">]</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="head-actions">
+      <a class="btn btn-primary nav-cta" href="tel:+17068878030">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.63 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.2a2 2 0 0 1 2.11-.45c.84.29 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+        (706) 887-8030
       </a>
-      <a href="#leave-review">Leave a Review</a>
-      <a href="#contact">Call Us</a>
-    </div>
-
-    <div class="nav-right-group" style="display:flex;align-items:center;gap:12px">
-      <button class="theme-btn" onclick="toggleTheme()" title="Toggle theme">
-        <i class="fa-solid fa-circle-half-stroke"></i>
+      <button class="theme-btn" id="themeBtn" aria-label="Switch color theme">
+        <svg class="sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="tel:7068878030" class="nav-cta">
-        <i class="fa-solid fa-phone" style="font-size:.65rem"></i> Call Now
-      </a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-
-    <button class="hamburger" onclick="toggleMobile()"
-      style="background:none;border:none;cursor:pointer;color:var(--ink);font-size:1.3rem;padding:4px;display:none">
-      <i class="fa-solid fa-bars" id="hicon"></i>
-    </button>
   </div>
-  <div id="m-nav">
-    <a href="#services"     onclick="closeMobile()">Services</a>
-    <a href="#pricing"      onclick="closeMobile()">Pricing</a>
-    <a href="#about"        onclick="closeMobile()">About</a>
-    <a href="#" onclick="openReviews(event);closeMobile()">Reviews</a>
-    <a href="#leave-review" onclick="closeMobile()">Leave a Review</a>
-    <a href="#contact"      onclick="closeMobile()">Call Us</a>
-    <a href="tel:7068878030">📞 (706) 887-8030</a>
-  </div>
-</nav>
+</header>
 
-
-<!-- ══ REVIEWS MODAL ══════════════════════════════════════════ -->
-<div id="reviews-modal" role="dialog" aria-modal="true" aria-label="Customer Reviews">
-  <div id="modal-backdrop" onclick="closeReviews()"></div>
-  <div id="modal-box">
-    <!-- Sticky header -->
-    <div class="modal-header">
-      <div>
-        <div style="display:flex;align-items:center;gap:12px">
-          <h2 class="display" style="font-size:2.2rem;color:var(--ink);transition:color .4s">CUSTOMER REVIEWS</h2>
-          <span id="modal-count-badge" style="background:var(--amber);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.08em;padding:3px 10px">0 Reviews</span>
-        </div>
-        <div id="modal-avg-row" style="display:flex;align-items:center;gap:8px;margin-top:6px">
-          <div id="modal-stars-avg" style="display:flex;gap:2px"></div>
-          <span id="modal-avg-text" style="font-size:.8rem;color:var(--ink3);transition:color .4s"></span>
-        </div>
-      </div>
-      <button class="modal-close" onclick="closeReviews()" aria-label="Close reviews">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-
-    <!-- Reviews list -->
-    <div id="reviews-list">
-      <!-- Injected by JS -->
-    </div>
-
-    <!-- Empty state -->
-    <div id="reviews-empty" style="padding:64px 32px;text-align:center">
-      <i class="fa-regular fa-star" style="font-size:2.5rem;color:var(--rule);display:block;margin-bottom:16px"></i>
-      <div class="display" style="font-size:1.8rem;color:var(--ink3);margin-bottom:8px;transition:color .4s">NO REVIEWS YET</div>
-      <p style="font-size:.875rem;color:var(--ink3);margin-bottom:24px">Be the first to share your experience with MeliaSites.</p>
-      <button onclick="closeReviews();document.getElementById('leave-review').scrollIntoView({behavior:'smooth'})"
-        class="nav-cta" style="background:var(--amber)">
-        Leave the First Review <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
-      </button>
-    </div>
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <nav aria-label="Mobile">
+    <ul>
+      <li><a href="#services" style="--d:60ms"><span class="idx">[01]</span> Services</a></li>
+      <li><a href="#work" style="--d:120ms"><span class="idx">[02]</span> Work</a></li>
+      <li><a href="#pricing" style="--d:180ms"><span class="idx">[03]</span> Pricing</a></li>
+      <li><a href="#about" style="--d:240ms"><span class="idx">[04]</span> About</a></li>
+    </ul>
+  </nav>
+  <div class="menu-call">
+    <a class="btn btn-primary btn-lg" href="tel:+17068878030" style="width:100%">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.63 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.2a2 2 0 0 1 2.11-.45c.84.29 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+      Call (706) 887-8030
+    </a>
+    <p class="client-strip" style="margin-top:16px;text-align:center">[ johns creek · alpharetta, ga ]</p>
   </div>
 </div>
 
-
-<!-- ══ HERO ══════════════════════════════════════════════════ -->
-<section id="home" style="min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:64px;background:var(--cream);transition:background .4s;position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background-image:radial-gradient(circle,var(--rule) 1px,transparent 1px);background-size:28px 28px;opacity:.5;pointer-events:none"></div>
-  <div style="position:absolute;top:-180px;right:-120px;width:600px;height:600px;background:radial-gradient(circle,rgba(196,96,58,.07) 0%,transparent 70%);pointer-events:none"></div>
-
-  <div style="max-width:1280px;margin:0 auto;padding:0 32px;width:100%;position:relative;z-index:1">
-    <div class="sr" style="display:flex;align-items:center;gap:16px;padding-top:80px;margin-bottom:24px">
-      <span class="eyebrow">Johns Creek &amp; Alpharetta, GA</span>
-      <div class="h-rule" style="flex:1;max-width:120px"></div>
-      <span style="font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3)">Est. 2026</span>
-    </div>
-
-    <h1 class="display sr d1" style="font-size:clamp(5rem,13vw,14rem);color:var(--ink);transition:color .4s;margin-bottom:0;line-height:.92">
-      WEB DESIGN<br/>
-      <span style="color:var(--amber);font-style:italic;font-family:'Lora',serif;font-size:clamp(2.8rem,8vw,8rem);font-weight:400;letter-spacing:-.01em">that actually<br/>works.</span>
-    </h1>
-
-    <div class="hero-bottom-strip two-col sr d2" style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding:48px 0 60px;border-top:1px solid var(--rule);margin-top:40px">
-      <p class="serif" style="font-size:1.1rem;line-height:1.75;color:var(--ink3);max-width:520px;transition:color .4s">
-        Beautiful, fast, high-converting websites for small businesses and professionals across North Atlanta. We handle the web — you focus on your work.
-      </p>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:16px">
-        <a href="#contact" class="nav-cta" style="font-size:.8rem;padding:14px 32px">
-          Free Quote <i class="fa-solid fa-arrow-right" style="font-size:.7rem"></i>
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="glow g1" aria-hidden="true"></div>
+  <div class="glow g2" aria-hidden="true"></div>
+  <div class="hero-brk l" data-plx="0.16" aria-hidden="true"><span class="inner">[</span></div>
+  <div class="hero-brk r" data-plx="-0.1" aria-hidden="true"><span class="inner">]</span></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow rv">johns creek · alpharetta · north atlanta</p>
+      <h1 class="rv" style="--d:80ms">Web design that gets your phone <span class="type-wrap"><span class="em" id="typed">ringing.</span><span class="caret" id="caret" aria-hidden="true"></span></span></h1>
+      <p class="lede rv" style="--d:170ms">Hand-coded, fast-loading websites for small businesses — flat pricing, two-week delivery, and a direct line to the person actually building your site.</p>
+      <div class="hero-ctas rv" style="--d:260ms">
+        <a class="btn btn-primary btn-lg" href="#work">See our work
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="tel:7068878030" style="font-size:.75rem;letter-spacing:.08em;color:var(--ink3);text-decoration:none;transition:color .2s"
-          onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--ink3)'">(706) 887-8030</a>
+        <a class="btn btn-ghost btn-lg" href="#contact">Get a free quote</a>
       </div>
+      <div class="ticker rv" style="--d:350ms" aria-hidden="true"><div class="ticker-track"><span>[ web design ]</span><span>[ e-commerce ]</span><span>[ local seo ]</span><span>[ redesigns ]</span><span>[ care plans ]</span><span>[ hand-coded ]</span><span>[ two-week delivery ]</span><span>[ web design ]</span><span>[ e-commerce ]</span><span>[ local seo ]</span><span>[ redesigns ]</span><span>[ care plans ]</span><span>[ hand-coded ]</span><span>[ two-week delivery ]</span></div></div>
     </div>
-  </div>
-
-  <!-- Stats -->
-  <div style="background:var(--cream2);border-top:1px solid var(--rule);transition:background .4s">
-    <div style="max-width:1280px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(2,1fr);position:relative;z-index:1" class="hero-stats-grid sr d3">
-      <div style="padding:28px 0;border-right:1px solid var(--rule)">
-        <div class="hero-stat-num">$500–$1k</div>
-        <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:4px">Pricing Range</div>
-      </div>
-      <div style="padding:28px 24px">
-        <div class="hero-stat-num">2wk</div>
-        <div style="font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:4px">Avg. Delivery</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ MARQUEE ═══════════════════════════════════════════════ -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span>Custom Web Design</span><span>E-Commerce</span><span>SEO Optimization</span><span>Website Redesign</span><span>Maintenance &amp; Hosting</span><span>Local Georgia Studio</span><span>Fast Delivery</span><span>Affordable Rates</span>
-    <span>Custom Web Design</span><span>E-Commerce</span><span>SEO Optimization</span><span>Website Redesign</span><span>Maintenance &amp; Hosting</span><span>Local Georgia Studio</span><span>Fast Delivery</span><span>Affordable Rates</span>
-  </div>
-</div>
-
-
-<!-- ══ SERVICES ══════════════════════════════════════════════ -->
-<section id="services" style="padding:100px 32px;background:var(--cream);transition:background .4s">
-  <div style="max-width:1280px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px;padding-bottom:40px;border-bottom:1px solid var(--rule)" class="two-col sr">
-      <div>
-        <span class="eyebrow">What We Do</span>
-        <h2 class="display" style="font-size:clamp(3.5rem,7vw,7rem);color:var(--ink);margin-top:8px;transition:color .4s">SERVICES</h2>
-      </div>
-      <p class="serif" style="font-size:1rem;line-height:1.8;color:var(--ink3);transition:color .4s">
-        Every service is delivered personally — no offshore teams, no templates, no guesswork. Just purposeful work designed to grow your business.
-      </p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)" class="three-col">
-      <div class="svc-card sr d1">
-        <div class="big-num">01</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;font-weight:600">Design</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--ink);margin-bottom:14px;transition:color .4s">Custom Website Design</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--ink3);transition:color .4s">Bespoke sites built around your brand. Each page is hand-crafted to impress and convert from the first click.</p>
-      </div>
-      <div class="svc-card sr d2">
-        <div class="big-num">02</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;font-weight:600">Commerce</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--ink);margin-bottom:14px;transition:color .4s">E-Commerce Stores</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--ink3);transition:color .4s">Secure, fast storefronts that sell. Payment processing, inventory, and mobile shopping — done right.</p>
-      </div>
-      <div class="svc-card sr d3">
-        <div class="big-num">03</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;font-weight:600">Search</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--ink);margin-bottom:14px;transition:color .4s">SEO-Optimized Sites</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--ink3);transition:color .4s">Rank higher locally and organically. Every build includes structured data, speed optimization, and on-page SEO.</p>
-      </div>
-      <div class="svc-card sr d4">
-        <div class="big-num">04</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;font-weight:600">Refresh</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--ink);margin-bottom:14px;transition:color .4s">Website Redesign</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--ink3);transition:color .4s">Your existing brand, elevated. We modernize outdated sites into sharp, high-performance digital assets.</p>
-      </div>
-      <div class="svc-card sr d5">
-        <div class="big-num">05</div>
-        <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:20px;font-weight:600">Care</div>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--ink);margin-bottom:14px;transition:color .4s">Maintenance & Hosting</h3>
-        <p style="font-size:.875rem;line-height:1.75;color:var(--ink3);transition:color .4s">Managed hosting, security, updates, and backups. We keep your site fast, safe, and always online.</p>
-      </div>
-      <div class="dark-card svc-dark-tile sr d6" style="padding:32px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden">
-        <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:var(--amber);opacity:.07;border-radius:50%"></div>
-        <div>
-          <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;font-weight:600">Start Here</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.9rem;color:var(--cream);margin-bottom:12px">Not Sure Where to Begin?</h3>
-          <p style="font-size:.875rem;line-height:1.75;color:rgba(250,250,247,.55)">A free 20-min call is all it takes. We'll map out exactly what your business needs.</p>
-        </div>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;text-decoration:none;margin-top:28px;transition:background .2s;width:fit-content"
-          onmouseover="this.style.background='#D4704A'" onmouseout="this.style.background='var(--amber)'">
-          Free Consult <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ PRICING ════════════════════════════════════════════════ -->
-<section id="pricing" style="padding:100px 32px;background:var(--cream2);transition:background .4s;position:relative;overflow:hidden">
-
-  <!-- Ghost bg text -->
-  <div style="position:absolute;bottom:-30px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(7rem,18vw,18rem);color:var(--amber);opacity:.04;line-height:1;pointer-events:none;user-select:none;white-space:nowrap">PRICE</div>
-
-  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1">
-
-    <!-- Header -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px;padding-bottom:40px;border-bottom:1px solid var(--rule)" class="two-col sr">
-      <div>
-        <span class="eyebrow">Transparent Pricing</span>
-        <h2 class="display" style="font-size:clamp(3.5rem,7vw,7rem);color:var(--ink);margin-top:8px;transition:color .4s">PACKAGES</h2>
-      </div>
-      <div>
-        <p class="serif" style="font-size:1rem;line-height:1.8;color:var(--ink3);margin-bottom:12px;transition:color .4s">
-          No hidden fees. No surprises. Just flat-rate packages designed for small businesses — starting at <strong style="color:var(--ink)">$500</strong> and going up to <strong style="color:var(--ink)">$1,000</strong>.
-        </p>
-        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--amber);text-decoration:none">
-          Get a Free Quote <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i>
-        </a>
-      </div>
-    </div>
-
-    <!-- 3 package cards -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)" class="three-col">
-
-      <!-- Basic -->
-      <div class="svc-card sr d1" style="display:flex;flex-direction:column">
-        <div style="margin-bottom:28px">
-          <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;font-weight:600">Starter</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ink);line-height:1;margin-bottom:6px;transition:color .4s">Basic Package</h3>
-          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:16px">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--amber);line-height:1">$597</span>
-            <span style="font-size:.75rem;color:var(--ink3);transition:color .4s">one-time</span>
+    <div class="hero-visual" aria-hidden="true" data-plx="-0.05">
+      <div class="builder">
+        <div class="bar"><i></i><i></i><i></i><span class="url">yourbusiness.com</span></div>
+        <div class="canvas">
+          <div class="b-el b-nav"><i></i><span></span><span></span><span></span><b></b></div>
+          <div class="b-el b-hero"><div class="b-h1"></div><div class="b-h1 s"></div><div class="b-btn"></div></div>
+          <div class="b-tiles">
+            <div class="b-el b-tile"><i></i></div>
+            <div class="b-el b-tile"><i></i></div>
+            <div class="b-el b-tile"><i></i></div>
           </div>
-          <p class="serif" style="font-size:.875rem;line-height:1.7;color:var(--ink3);transition:color .4s">Perfect for new businesses that need a clean, professional web presence fast.</p>
+          <div class="b-el b-foot"></div>
+          <div class="b-badge">✓ live in 14 days</div>
         </div>
-        <div style="height:1px;background:var(--rule);margin-bottom:24px"></div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;margin-bottom:28px">
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Up to 3 pages</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Clean modern mobile-friendly design</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Contact form + Google Maps</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Basic SEO setup</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>1 round of revisions</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>30 days of support</li>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats" aria-label="Studio facts">
+  <div class="wrap stats-grid">
+    <div class="stat rv"><div class="num" data-target="14">14</div><div class="lbl">day average build</div></div>
+    <div class="stat rv" style="--d:90ms"><div class="num" data-target="100" data-suffix="%">100%</div><div class="lbl">hand-coded · zero templates</div></div>
+    <div class="stat rv" style="--d:180ms"><div class="num" data-target="4" data-suffix="hr">4hr</div><div class="lbl">typical reply time</div></div>
+    <div class="stat rv" style="--d:270ms"><div class="num" data-target="597" data-prefix="$">$597</div><div class="lbl">projects start at</div></div>
+  </div>
+</section>
+<!-- ================= SERVICES ================= -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow rv">services</p>
+      <h2 class="rv" style="--d:70ms">Everything your site needs. <span class="em">Nothing it doesn't.</span></h2>
+      <p class="lede rv" style="--d:140ms">Every project is delivered personally — no offshore teams, no page builders, no guesswork. Just purposeful work designed to grow your business.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="card svc rv">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg></div>
+        <span class="tag">[design]</span>
+        <h3>Custom Website Design</h3>
+        <p>Bespoke sites built around your brand — every page hand-crafted to impress from the first click and convert visitors into calls.</p>
+      </div>
+      <div class="card svc rv" style="--d:80ms">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2 2h3l2.6 12.5a2 2 0 0 0 2 1.5h8.9a2 2 0 0 0 2-1.6L22 7H6"/></svg></div>
+        <span class="tag">[commerce]</span>
+        <h3>E-Commerce Stores</h3>
+        <p>Secure, fast storefronts that sell — payment processing, inventory, and mobile shopping done right from day one.</p>
+      </div>
+      <div class="card svc rv" style="--d:160ms">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 11h6M11 8v6"/></svg></div>
+        <span class="tag">[search]</span>
+        <h3>SEO-Optimized Builds</h3>
+        <p>Rank higher locally and organically. Every build ships with structured data, speed optimization, and on-page SEO.</p>
+      </div>
+      <div class="card svc rv" style="--d:0ms">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></div>
+        <span class="tag">[refresh]</span>
+        <h3>Website Redesign</h3>
+        <p>Your existing brand, elevated. We turn outdated sites into sharp, high-performance digital assets — without losing your SEO.</p>
+      </div>
+      <div class="card svc rv" style="--d:80ms">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="tag">[care]</span>
+        <h3>Care Plans — Hosting &amp; Maintenance</h3>
+        <p>Managed hosting, security, updates, and backups on a simple monthly plan — your site stays fast, safe, and always online.</p>
+      </div>
+      <div class="card svc svc-cta rv" style="--d:160ms">
+        <span class="tag" style="color:var(--cream-on-clay);opacity:.8">[start here]</span>
+        <h3>Not sure where to begin?</h3>
+        <p>A free 20-minute call is all it takes. We'll map out exactly what your business needs — no pressure, no jargon.</p>
+        <a class="btn btn-cream" href="#contact">Book a free consult</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section class="section tint" id="work">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow rv">what we build</p>
+      <h2 class="rv" style="--d:70ms">One studio. <span class="em">Any style.</span></h2>
+      <p class="lede rv" style="--d:140ms">Service businesses, online stores, personal brands — your site should look like <span class="em">your</span> business, not a template. Here's the range.</p>
+    </div>
+    <div class="work-grid">
+      <article class="card proj rv">
+        <div class="frame" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i><span class="url">yourbusiness.com</span></div>
+          <div class="shot shot-call">
+            <div class="t"></div><div class="t s"></div>
+            <div class="mapblock"></div>
+            <div class="callbar"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.9 15.9 0 0 0 6.6 6.6l2.2-2.2a1.1 1.1 0 0 1 1.1-.27c1.2.4 2.5.6 3.8.6.6 0 1.1.5 1.1 1.1V20c0 .6-.5 1.1-1.1 1.1C11.3 21.1 2.9 12.7 2.9 3.7 2.9 3.1 3.4 2.6 4 2.6h3.4c.6 0 1.1.5 1.1 1.1 0 1.3.2 2.6.6 3.8.12.38.03.8-.27 1.1l-2.23 2.2z"/></svg>INCOMING CALL…</div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <span class="kind">[service businesses]</span>
+          <h3>Get-the-call sites</h3>
+          <p>For trades and local services — built around one job: turning Google searches into phone calls. Click-to-call everywhere, quote forms, service-area pages.</p>
+          <div class="chips"><span class="chip">click-to-call</span><span class="chip">local seo</span><span class="chip">quote forms</span></div>
+        </div>
+      </article>
+      <article class="card proj rv" style="--d:110ms">
+        <div class="frame" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i><span class="url">yourstore.com</span></div>
+          <div class="shot shot-shop">
+            <div class="t"></div><div class="t s"></div>
+            <div class="cart"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.5"/><circle cx="19" cy="21" r="1.5"/><path d="M2 2h3l2.6 12.5a2 2 0 0 0 2 1.5h8.9a2 2 0 0 0 2-1.6L22 7H6"/></svg><b>3</b></div>
+            <div class="grid"><i></i><i></i><i></i></div>
+            <div class="fly"></div>
+            <div class="pricebar"></div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <span class="kind">[online stores]</span>
+          <h3>Stores that sell</h3>
+          <p>Fast, secure storefronts with payments, inventory, and a mobile checkout that doesn't lose customers halfway through.</p>
+          <div class="chips"><span class="chip">payments</span><span class="chip">inventory</span><span class="chip">mobile checkout</span></div>
+        </div>
+      </article>
+      <article class="card proj rv" style="--d:220ms">
+        <div class="frame" aria-hidden="true">
+          <div class="bar"><i></i><i></i><i></i><span class="url">yourbrand.com</span></div>
+          <div class="shot shot-brand">
+            <div class="t"></div><div class="t s"></div>
+            <div class="strips"><div class="strip"></div><div class="strip"></div><div class="strip"></div></div>
+            <div class="booked"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>BOOKING CONFIRMED</div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <span class="kind">[brands &amp; portfolios]</span>
+          <h3>Brand sites that book</h3>
+          <p>For professionals and personal brands — portfolio-first design, booking built in, and a look that makes people trust you before you say a word.</p>
+          <div class="chips"><span class="chip">portfolio-first</span><span class="chip">booking</span><span class="chip">brand design</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow rv">pricing</p>
+      <h2 class="rv" style="--d:70ms">Flat rates. <span class="em">No surprises.</span></h2>
+      <p class="lede rv" style="--d:140ms">No hidden fees, no hourly meters. Just honest packages built for small businesses — every one includes a free initial consultation.</p>
+    </div>
+    <div class="price-grid">
+      <div class="card plan rv">
+        <span class="name">starter</span>
+        <h3>Basic Package</h3>
+        <div class="amount">$597</div>
+        <span class="per">one-time</span>
+        <p class="blurb">For new businesses that need a clean, professional web presence — fast.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Up to 3 pages, mobile-first design</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contact form + Google Maps</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Basic SEO setup</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 round of revisions · 30 days support</li>
         </ul>
-        <a href="#contact" class="nav-cta" style="justify-content:center;text-align:center;background:transparent;border:1.5px solid var(--ink);color:var(--ink);transition:background .2s,color .2s,border-color .2s"
-          onmouseover="this.style.background='var(--ink)';this.style.color='var(--cream)'"
-          onmouseout="this.style.background='transparent';this.style.color='var(--ink)'">
-          Get Started
-        </a>
+        <a class="btn btn-ghost" href="#contact">Start with Basic</a>
       </div>
-
-      <!-- Standard — Most Popular -->
-      <div class="svc-card dark-card sr d2" style="display:flex;flex-direction:column;border-color:var(--ink);position:relative">
-        <!-- Popular badge -->
-        <div style="position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--amber);color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 16px;white-space:nowrap">★ Most Popular</div>
-        <div style="margin-bottom:28px;margin-top:16px">
-          <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;font-weight:600">Best Value</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--cream);line-height:1;margin-bottom:6px">Standard Package</h3>
-          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:16px">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--amber);line-height:1">$997</span>
-            <span class="dark-card-text-faint" style="font-size:.75rem;color:rgba(250,250,247,.4)">one-time</span>
-          </div>
-          <p class="serif dark-card-text" style="font-size:.875rem;line-height:1.7;color:rgba(250,250,247,.65)">The full package for businesses ready to grow their online presence seriously.</p>
-        </div>
-        <div class="dark-card-rule" style="height:1px;background:rgba(255,255,255,.1);margin-bottom:24px"></div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;margin-bottom:28px">
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>5–7 pages</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Fully custom design &amp; branding</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Blog / easy-to-update content system</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Contact + booking forms</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Advanced SEO + Google Analytics</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>2 rounds of revisions + training</li>
-          <li class="dark-card-text" style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:rgba(250,250,247,.8)"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>30 days of support</li>
+      <div class="card plan featured rv" style="--d:110ms">
+        <span class="badge">★ most popular</span>
+        <span class="name">best value</span>
+        <h3>Standard Package</h3>
+        <div class="amount">$997</div>
+        <span class="per">one-time</span>
+        <p class="blurb">The full package for businesses ready to take their online presence seriously.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>5–7 pages, fully custom design &amp; branding</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Blog / easy-to-update content system</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Contact + booking forms</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Advanced SEO + Google Analytics</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 rounds of revisions + training · 30 days support</li>
         </ul>
-        <a href="#contact" class="nav-cta" style="justify-content:center;text-align:center;background:var(--amber);color:#fff;border:none"
-          onmouseover="this.style.background='var(--amber2)'"
-          onmouseout="this.style.background='var(--amber)'">
-          Get Started
-        </a>
+        <a class="btn btn-primary" href="#contact">Start with Standard</a>
       </div>
-
-      <!-- Rebuild -->
-      <div class="svc-card sr d3" style="display:flex;flex-direction:column">
-        <div style="margin-bottom:28px">
-          <div style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;font-weight:600">Refresh</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--ink);line-height:1;margin-bottom:6px;transition:color .4s">Website Rebuild</h3>
-          <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:16px">
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--amber);line-height:1">$799</span>
-            <span style="font-size:.75rem;color:var(--ink3);transition:color .4s">one-time</span>
-          </div>
-          <p class="serif" style="font-size:.875rem;line-height:1.7;color:var(--ink3);transition:color .4s">Already have a website that needs a modern upgrade? This is your package.</p>
-        </div>
-        <div style="height:1px;background:var(--rule);margin-bottom:24px"></div>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:10px;flex:1;margin-bottom:28px">
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Complete redesign of your existing site</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Modern, fast, mobile-optimized layout</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Speed &amp; performance improvements</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>SEO cleanup &amp; content migration</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>Fresh look &amp; better user experience</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>2 rounds of revisions</li>
-          <li style="display:flex;gap:10px;align-items:flex-start;font-size:.85rem;color:var(--ink3);transition:color .4s"><span style="color:var(--amber);flex-shrink:0;margin-top:1px">✦</span>30 days of support</li>
+      <div class="card plan rv" style="--d:220ms">
+        <span class="name">refresh</span>
+        <h3>Website Rebuild</h3>
+        <div class="amount">$799</div>
+        <span class="per">one-time</span>
+        <p class="blurb">Already have a site that needs a modern upgrade? This is your package.</p>
+        <ul>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Complete redesign of your existing site</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Speed &amp; performance improvements</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO cleanup &amp; content migration</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 rounds of revisions · 30 days support</li>
         </ul>
-        <a href="#contact" class="nav-cta" style="justify-content:center;text-align:center;background:transparent;border:1.5px solid var(--ink);color:var(--ink);transition:background .2s,color .2s"
-          onmouseover="this.style.background='var(--ink)';this.style.color='var(--cream)'"
-          onmouseout="this.style.background='transparent';this.style.color='var(--ink)'">
-          Get Started
-        </a>
-      </div>
-
-    </div>
-
-    <!-- Fine print -->
-    <p style="font-size:.75rem;color:var(--ink3);margin-top:24px;text-align:center;transition:color .4s">
-      All packages include a free initial consultation. Custom quotes available for larger or more complex projects.
-      <a href="#contact" style="color:var(--amber);text-decoration:none;font-weight:600"> Contact us →</a>
-    </p>
-
-  </div>
-</section>
-
-
-<!-- ══ WHY US ══════════════════════════════════════════════ -->
-<section id="why" style="padding:100px 32px;background:var(--cream2);transition:background .4s">
-  <div style="max-width:1280px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center" class="two-col">
-      <div class="sr-l">
-        <span class="eyebrow">Why Choose Us</span>
-        <h2 class="display" style="font-size:clamp(3rem,6vw,6rem);color:var(--ink);margin:10px 0 28px;transition:color .4s">WHY CHOOSE<br/>MELIAS<span style="color:var(--amber)">ITES</span></h2>
-        <p class="serif" style="font-size:1.05rem;line-height:1.8;color:var(--ink3);margin-bottom:24px;transition:color .4s">We're not a faceless agency or an overseas vendor. We're right here in Johns Creek and Alpharetta — your neighbors, your partners.</p>
-        <p class="serif" style="font-size:1.05rem;line-height:1.8;color:var(--ink3);margin-bottom:36px;transition:color .4s">When you work with MeliaSites, you get direct access to the person building your site from day one to launch.</p>
-        <a href="tel:7068878030" style="display:inline-flex;align-items:center;gap:10px;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);text-decoration:none;border-bottom:1px solid var(--amber);padding-bottom:4px">
-          <i class="fa-solid fa-phone"></i> (706) 887-8030
-        </a>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:0" class="sr-r">
-        <div style="padding:28px 0;border-bottom:1px solid var(--rule);display:flex;gap:20px;align-items:flex-start">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber);line-height:1;flex-shrink:0">01</span>
-          <div><div style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;transition:color .4s">Local &amp; Personal</div><p style="font-size:.875rem;line-height:1.65;color:var(--ink3);transition:color .4s">Real people, real conversations. We know the North Atlanta market.</p></div>
-        </div>
-        <div style="padding:28px 0;border-bottom:1px solid var(--rule);display:flex;gap:20px;align-items:flex-start">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber);line-height:1;flex-shrink:0">02</span>
-          <div><div style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;transition:color .4s">2-Week Delivery</div><p style="font-size:.875rem;line-height:1.65;color:var(--ink3);transition:color .4s">Most projects launch in 2–3 weeks. No months-long delays.</p></div>
-        </div>
-        <div style="padding:28px 0;border-bottom:1px solid var(--rule);display:flex;gap:20px;align-items:flex-start">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber);line-height:1;flex-shrink:0">03</span>
-          <div><div style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;transition:color .4s">Transparent Pricing</div><p style="font-size:.875rem;line-height:1.65;color:var(--ink3);transition:color .4s">Flat-rate packages. No hidden fees. Premium quality at local prices.</p></div>
-        </div>
-        <div style="padding:28px 0;display:flex;gap:20px;align-items:flex-start">
-          <span style="font-family:'Bebas Neue',sans-serif;font-size:2.5rem;color:var(--amber);line-height:1;flex-shrink:0">04</span>
-          <div><div style="font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);margin-bottom:6px;transition:color .4s">Ongoing Support</div><p style="font-size:.875rem;line-height:1.65;color:var(--ink3);transition:color .4s">We stay with you post-launch — updates, security, and strategy.</p></div>
-        </div>
+        <a class="btn btn-ghost" href="#contact">Start a Rebuild</a>
       </div>
     </div>
+    <p class="price-note rv">Bigger or more complex project in mind? <a href="#contact">Get a custom quote →</a></p>
   </div>
 </section>
-
-
-
-
-
-<!-- ══ ABOUT ══════════════════════════════════════════════════ -->
-<section id="about" style="padding:100px 32px;background:var(--ink2);transition:background .4s;position:relative;overflow:hidden">
-  <div style="position:absolute;bottom:-40px;right:-20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,20vw,20rem);color:rgba(255,255,255,.03);line-height:1;pointer-events:none;user-select:none;white-space:nowrap">MELIA</div>
-  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center" class="two-col">
-      <div class="sr-l" style="position:relative">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&auto=format&fit=crop&q=75"
-          alt="MeliaSites team"
-          style="width:100%;height:480px;object-fit:cover;display:block;filter:grayscale(15%)" />
-        <div style="position:absolute;top:24px;left:24px;right:24px;bottom:24px;border:1px solid var(--amber);opacity:.35;pointer-events:none"></div>
-      </div>
-      <div class="sr-r">
-        <span class="eyebrow" style="color:var(--amber)">Who We Are</span>
-        <h2 class="display" style="font-size:clamp(3rem,5vw,5.5rem);color:var(--cream);margin:10px 0 28px;transition:color .4s">YOUR LOCAL<br/>WEB STUDIO</h2>
-        <p class="serif about-body" style="font-size:1.05rem;line-height:1.8;color:rgba(250,250,247,.55);margin-bottom:20px">MeliaSites is a boutique web design studio rooted in <strong style="color:var(--cream)">Johns Creek and Alpharetta, Georgia</strong>. We work with small business owners and professionals who need a website that performs.</p>
-        <p class="serif about-body" style="font-size:1.05rem;line-height:1.8;color:rgba(250,250,247,.55);margin-bottom:40px">Every project is handled personally. We learn your business, your customers, and your goals — then build something that drives real results.</p>
-        <a href="#contact" class="nav-cta" style="background:var(--amber);color:#fff">Work With Us <i class="fa-solid fa-arrow-right" style="font-size:.65rem"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ══ LEAVE A REVIEW ═══════════════════════════════════════ -->
-<section id="leave-review" style="padding:100px 32px;background:var(--cream2);transition:background .4s;position:relative;overflow:hidden">
-
-  <!-- Ghost background text -->
-  <div style="position:absolute;top:-20px;left:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(6rem,18vw,18rem);color:var(--amber);opacity:.04;line-height:1;pointer-events:none;user-select:none;white-space:nowrap">REVIEW</div>
-
-  <div style="max-width:1280px;margin:0 auto;position:relative;z-index:1">
-
-    <!-- Header -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px;padding-bottom:40px;border-bottom:1px solid var(--rule)" class="two-col sr">
+<!-- ================= ABOUT ================= -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="about-grid">
       <div>
-        <span class="eyebrow">Share Your Experience</span>
-        <h2 class="display" style="font-size:clamp(3.5rem,7vw,7rem);color:var(--ink);margin-top:8px;transition:color .4s">LEAVE A<br/>REVIEW</h2>
+        <p class="eyebrow rv">about</p>
+        <h2 class="rv" style="--d:70ms">Your neighbors, <span class="em">not a vendor.</span></h2>
+        <p class="lede rv" style="--d:140ms;margin-top:16px">MeliaSites is a boutique web studio rooted in Johns Creek and Alpharetta, Georgia. We work with small business owners and professionals who need a website that actually performs.</p>
+        <p class="rv" style="--d:200ms;color:var(--ink-2);margin-top:14px">Every project is handled personally. We learn your business, your customers, and your goals — then hand-code something that drives real results. From day one to launch, you have direct access to the person building your site.</p>
+        <div class="rv" style="--d:260ms;margin-top:26px">
+          <a class="btn btn-primary" href="#contact">Work with us</a>
+        </div>
       </div>
-      <div>
-        <p class="serif" style="font-size:1rem;line-height:1.8;color:var(--ink3);margin-bottom:20px;transition:color .4s">
-          Worked with us? We'd love to hear about your experience. Your review is saved right here on the site and helps other local businesses find us.
-        </p>
-        <!-- View all reviews CTA -->
-        <button onclick="openReviews(event)" style="display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--rule);color:var(--ink3);font-family:'Epilogue',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;cursor:pointer;transition:border-color .2s,color .2s,background .2s"
-          onmouseover="this.style.borderColor='var(--amber)';this.style.color='var(--amber)'"
-          onmouseout="this.style.borderColor='var(--rule)';this.style.color='var(--ink3)'">
-          <i class="fa-regular fa-star"></i>
-          View All Reviews
-          <span id="review-btn-count" style="background:var(--amber);color:#fff;font-size:.6rem;padding:1px 7px;border-radius:10px">0</span>
-        </button>
+      <div class="why-list">
+        <div class="why rv"><span class="mk">[+]</span><div><h3>Local &amp; personal</h3><p>Real conversations with real people who know the North Atlanta market.</p></div></div>
+        <div class="why rv" style="--d:80ms"><span class="mk">[+]</span><div><h3>Two-week delivery</h3><p>Most projects launch in 2–3 weeks. No months-long agency delays.</p></div></div>
+        <div class="why rv" style="--d:160ms"><span class="mk">[+]</span><div><h3>Hand-coded speed</h3><p>No bloated page builders — every site is built to load in under a second.</p></div></div>
+        <div class="why rv" style="--d:240ms"><span class="mk">[+]</span><div><h3>Ongoing support</h3><p>We stay with you after launch — updates, security, and strategy on simple care plans.</p></div></div>
       </div>
     </div>
-
-    <!-- Review Form + Preview side by side -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="review-grid two-col">
-
-      <!-- Left: form -->
-      <div class="sr-l">
-        <form id="review-form" onsubmit="submitReview(event)" style="display:flex;flex-direction:column;gap:20px">
-
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px" class="two-col-sm">
-            <div>
-              <label class="field-label" for="r-name">Your Name *</label>
-              <input type="text" id="r-name" placeholder="Jane Smith" required class="field" maxlength="60" />
-            </div>
-            <div>
-              <label class="field-label" for="r-role">Business / Role</label>
-              <input type="text" id="r-role" placeholder="Owner, Plumber, etc." class="field" maxlength="60" />
-            </div>
-          </div>
-
-          <!-- Star rating picker -->
-          <div>
-            <label class="field-label">Your Rating *</label>
-            <div class="star-row" id="star-picker" role="group" aria-label="Star rating">
-              <button type="button" class="star-btn" data-val="1" onclick="setRating(1)" aria-label="1 star">★</button>
-              <button type="button" class="star-btn" data-val="2" onclick="setRating(2)" aria-label="2 stars">★</button>
-              <button type="button" class="star-btn" data-val="3" onclick="setRating(3)" aria-label="3 stars">★</button>
-              <button type="button" class="star-btn" data-val="4" onclick="setRating(4)" aria-label="4 stars">★</button>
-              <button type="button" class="star-btn" data-val="5" onclick="setRating(5)" aria-label="5 stars">★</button>
-            </div>
-            <input type="hidden" id="r-rating" value="0" />
-            <div id="rating-label" style="font-size:.75rem;color:var(--ink3);margin-top:6px;min-height:18px;transition:color .4s"></div>
-          </div>
-
-          <div>
-            <label class="field-label" for="r-review">Your Review *</label>
-            <textarea id="r-review" rows="5" required placeholder="Tell others about your experience working with MeliaSites…" class="field" style="resize:vertical;min-height:120px" maxlength="600"></textarea>
-            <div id="char-count" style="font-size:.7rem;color:var(--ink3);text-align:right;margin-top:4px;transition:color .4s">0 / 600</div>
-          </div>
-
-          <button type="submit" id="rbtn" class="nav-cta" style="justify-content:center;padding:16px;font-size:.8rem;width:100%;border:none;cursor:pointer">
-            <span id="rbtn-text">Submit Review</span>
-            <i class="fa-solid fa-star" id="rbtn-icon" style="font-size:.7rem"></i>
-          </button>
-
-          <div id="review-ok" style="display:none;padding:20px;background:var(--amber-g);border:1px solid var(--amber);text-align:center">
-            <i class="fa-solid fa-check" style="color:var(--amber);font-size:1.2rem;display:block;margin-bottom:8px"></i>
-            <div style="font-weight:700;font-size:.9rem;color:var(--ink);transition:color .4s">Thank you for your review!</div>
-            <div style="font-size:.8rem;color:var(--ink3);margin-top:4px;transition:color .4s">It's now live on the site.</div>
-            <button onclick="openReviews(event)" style="margin-top:14px;background:none;border:none;color:var(--amber);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:underline;font-family:'Epilogue',sans-serif">
-              View All Reviews →
-            </button>
-          </div>
-
-        </form>
+    <div class="process">
+      <p class="eyebrow rv">how a project runs</p>
+      <div class="steps">
+        <div class="step rv"><span class="n">[01]</span><h3>Discover</h3><p>A free 20-minute call to map what your business actually needs.</p></div>
+        <div class="step rv" style="--d:80ms"><span class="n">[02]</span><h3>Design</h3><p>A custom concept built around your brand — reviewed together, revised fast.</p></div>
+        <div class="step rv" style="--d:160ms"><span class="n">[03]</span><h3>Build</h3><p>Hand-coded, mobile-first, SEO-ready. Tested on real phones before you ever see it.</p></div>
+        <div class="step rv" style="--d:240ms"><span class="n">[04]</span><h3>Launch &amp; care</h3><p>We go live together, then keep it fast, safe, and current.</p></div>
       </div>
-
-      <!-- Right: live preview of most recent 2 reviews -->
-      <div class="sr-r">
-        <div style="margin-bottom:16px;display:flex;align-items:center;justify-content:space-between">
-          <div style="font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink3);transition:color .4s">Recent Reviews</div>
-          <button onclick="openReviews(event)" style="background:none;border:none;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--amber);cursor:pointer;font-family:'Epilogue',sans-serif">
-            See All <i class="fa-solid fa-arrow-right" style="font-size:.6rem"></i>
-          </button>
-        </div>
-        <div id="recent-preview" style="display:flex;flex-direction:column;gap:0;border:1px solid var(--rule)">
-          <!-- Filled by JS -->
-        </div>
-        <div id="preview-empty" style="display:none;padding:40px 24px;border:1px solid var(--rule);text-align:center">
-          <i class="fa-regular fa-face-smile" style="font-size:1.8rem;color:var(--rule);display:block;margin-bottom:10px"></i>
-          <p style="font-size:.85rem;color:var(--ink3);transition:color .4s">Reviews you submit will appear here.</p>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
 
-
-<!-- ══ CONTACT ════════════════════════════════════════════════ -->
-<section id="contact" style="padding:100px 32px;background:var(--cream);transition:background .4s">
-  <div style="max-width:1280px;margin:0 auto">
-
-    <div style="border-bottom:1px solid var(--rule);padding-bottom:40px;margin-bottom:64px" class="sr">
-      <span class="eyebrow">Get in Touch</span>
-      <h2 class="display" style="font-size:clamp(3.5rem,8vw,8rem);color:var(--ink);margin-top:8px;transition:color .4s">LET'S TALK.</h2>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch" class="contact-grid two-col sr">
-
-      <!-- Call card -->
-      <a href="tel:7068878030" class="call-card dark-card" style="display:flex;flex-direction:column;justify-content:space-between;padding:48px;text-decoration:none;position:relative;overflow:hidden" onmouseover="this.style.opacity='.9'" onmouseout="this.style.opacity='1'">
-        <!-- Ghost deco text -->
-        <div style="position:absolute;bottom:-24px;right:-8px;font-family:'Bebas Neue',sans-serif;font-size:10rem;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;user-select:none">CALL</div>
-        <div>
-          <div style="width:52px;height:52px;background:var(--amber);display:flex;align-items:center;justify-content:center;margin-bottom:28px">
-            <i class="fa-solid fa-phone" style="color:#fff;font-size:1.1rem"></i>
-          </div>
-          <div class="call-card-label" style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:rgba(250,250,247,.4);margin-bottom:10px">Call or Text</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--cream);letter-spacing:.04em;line-height:1;margin-bottom:12px">(706) 887-8030</div>
-          <p class="call-card-body" style="font-family:'Lora',serif;font-size:.95rem;line-height:1.7;color:rgba(250,250,247,.55)">Call or text us directly — we pick up and we're happy to chat about your project, no pressure.</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:8px;margin-top:36px">
-          <span style="font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber)">Tap to call</span>
-          <i class="fa-solid fa-arrow-right" style="color:var(--amber);font-size:.65rem"></i>
-        </div>
-      </a>
-
-      <!-- Info + hours card -->
-      <div style="display:flex;flex-direction:column;gap:0;border:1px solid var(--rule);transition:border-color .4s">
-
-        <div style="padding:32px;border-bottom:1px solid var(--rule);transition:border-color .4s">
-          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:10px;transition:color .4s">Location</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ink);letter-spacing:.04em;line-height:1.15;transition:color .4s">Johns Creek &amp;<br/>Alpharetta, GA</div>
-        </div>
-
-        <div style="padding:32px;border-bottom:1px solid var(--rule);transition:border-color .4s">
-          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:10px;transition:color .4s">Email</div>
-          <a href="mailto:MeliaSites@gmail.com" style="font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--ink);letter-spacing:.04em;line-height:1.15;transition:color .2s;text-decoration:none;display:block"
-            onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--ink)'">MeliaSites@gmail.com</a>
-        </div>
-
-        <div style="padding:32px;border-bottom:1px solid var(--rule);transition:border-color .4s">
-          <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:10px;transition:color .4s">Business Hours</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--ink);letter-spacing:.04em;line-height:1.15;transition:color .4s">Mon – Fri<br/>9am – 6pm EST</div>
-        </div>
-
-        <div style="padding:32px;flex:1;display:flex;flex-direction:column;justify-content:space-between">
-          <div>
-            <div style="font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--ink3);margin-bottom:10px;transition:color .4s">Response Time</div>
-            <div style="display:flex;align-items:center;gap:10px">
-              <span style="width:8px;height:8px;border-radius:50%;background:var(--amber);display:block;flex-shrink:0;animation:pulse 2s infinite"></span>
-              <span style="font-size:.9rem;font-weight:600;color:var(--ink);transition:color .4s">Usually within 4 business hours</span>
-            </div>
-          </div>
-          <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
-            <a href="tel:7068878030" class="nav-cta" style="flex:1;justify-content:center;text-align:center;background:var(--amber);color:#fff;border:none;cursor:pointer;text-decoration:none">
-              <i class="fa-solid fa-phone" style="font-size:.7rem"></i> Call Now
-            </a>
-            <a href="mailto:MeliaSites@gmail.com" class="nav-cta" style="flex:1;justify-content:center;text-align:center;background:var(--ink2);color:var(--cream);border:none;cursor:pointer;text-decoration:none;transition:background .2s"
-              onmouseover="this.style.background='var(--ink)'" onmouseout="this.style.background='var(--ink2)'">
-              <i class="fa-solid fa-envelope" style="font-size:.7rem"></i> Email Us
-            </a>
-          </div>
-        </div>
-
+<!-- ================= CONTACT ================= -->
+<section class="section" id="contact" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact-panel rv">
+      <p class="eyebrow">contact</p>
+      <h2>Let's get your phone ringing.</h2>
+      <p class="lede">Call or text us directly — we pick up, and we're happy to talk through your project. No pressure, no jargon.</p>
+      <a class="phone-big" href="tel:+17068878030">(706) 887-8030</a>
+      <div class="contact-ctas">
+        <a class="btn btn-cream btn-lg" href="tel:+17068878030">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.63 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.2a2 2 0 0 1 2.11-.45c.84.29 1.72.51 2.62.63A2 2 0 0 1 22 16.92z"/></svg>
+          Call now
+        </a>
+        <a class="btn btn-outline-cream btn-lg" href="sms:+17068878030">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Text us
+        </a>
+        <a class="btn btn-outline-cream btn-lg" href="mailto:MeliaSites@gmail.com">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+          Email us
+        </a>
+      </div>
+      <div class="contact-meta">
+        <div class="cm"><div class="k">[location]</div><div class="v">Johns Creek &amp; Alpharetta, GA</div></div>
+        <div class="cm"><div class="k">[hours]</div><div class="v">Mon–Fri · 9am–6pm EST</div></div>
+        <div class="cm"><div class="k">[response]</div><div class="v">Usually within 4 business hours</div></div>
+        <div class="cm"><div class="k">[email]</div><div class="v"><a href="mailto:MeliaSites@gmail.com">MeliaSites@gmail.com</a></div></div>
       </div>
     </div>
-
   </div>
 </section>
+</main>
 
-
-
-<!-- ══ FOOTER ═════════════════════════════════════════════════ -->
-<footer style="padding:64px 32px 0">
-  <div style="max-width:1280px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.08)" class="footer-grid three-col">
-      <div>
-        <a href="#home" class="logo-mark" style="color:var(--cream2);text-decoration:none">Melia<span style="color:var(--amber)">Sites</span></a>
-        <p style="font-size:.85rem;line-height:1.7;color:rgba(250,250,247,.35);max-width:260px;margin:16px 0 20px">Professional websites that work for small businesses across North Atlanta.</p>
-        <a href="tel:7068878030" style="font-size:.875rem;font-weight:600;color:var(--amber);text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:8px">
-          <i class="fa-solid fa-phone" style="font-size:.7rem"></i> (706) 887-8030
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="MeliaSites — back to top">
+          <span class="brk">[</span>MeliaSites<span class="dot" aria-hidden="true"></span><span class="brk">]</span>
         </a>
-        <a href="mailto:MeliaSites@gmail.com" style="font-size:.875rem;font-weight:600;color:var(--amber);text-decoration:none;display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;opacity:.8"
-          onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='.8'">
-          <i class="fa-solid fa-envelope" style="font-size:.7rem"></i> MeliaSites@gmail.com
-        </a>
-        <!-- Social media -->
-        <div style="display:flex;gap:10px;margin-top:4px">
-          <a href="https://www.tiktok.com/@Melia_Sites" target="_blank" rel="noopener noreferrer"
-            style="width:36px;height:36px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(250,250,247,.5);font-size:.9rem;transition:background .2s,color .2s,border-color .2s"
-            onmouseover="this.style.background='var(--amber)';this.style.color='#fff';this.style.borderColor='var(--amber)'"
-            onmouseout="this.style.background='rgba(255,255,255,.07)';this.style.color='rgba(250,250,247,.5)';this.style.borderColor='rgba(255,255,255,.1)'"
-            title="TikTok: @Melia_Sites">
-            <i class="fa-brands fa-tiktok"></i>
+        <p>Professional websites that work for small businesses across North Atlanta.</p>
+        <a class="tel" href="tel:+17068878030">(706) 887-8030</a>
+        <div class="socials">
+          <a href="https://www.tiktok.com/@Melia_Sites" target="_blank" rel="noopener" aria-label="MeliaSites on TikTok">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
           </a>
-          <a href="https://www.instagram.com/melia_sites" target="_blank" rel="noopener noreferrer"
-            style="width:36px;height:36px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;color:rgba(250,250,247,.5);font-size:.9rem;transition:background .2s,color .2s,border-color .2s"
-            onmouseover="this.style.background='var(--amber)';this.style.color='#fff';this.style.borderColor='var(--amber)'"
-            onmouseout="this.style.background='rgba(255,255,255,.07)';this.style.color='rgba(250,250,247,.5)';this.style.borderColor='rgba(255,255,255,.1)'"
-            title="Instagram: @melia_sites">
-            <i class="fa-brands fa-instagram"></i>
+          <a href="https://www.instagram.com/melia_sites" target="_blank" rel="noopener" aria-label="MeliaSites on Instagram">
+            <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
           </a>
         </div>
       </div>
-      <div>
-        <h5 style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,247,.2);margin-bottom:20px">Pages</h5>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Services</a>
-          <a href="#pricing" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Pricing</a>
-          <a href="#about" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">About</a>
-          <a href="#" onclick="openReviews(event)" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Reviews</a>
-          <a href="#leave-review" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Leave a Review</a>
-          <a href="#contact" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Contact</a>
-        </div>
+      <div class="foot-col">
+        <h4>[pages]</h4>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
       </div>
-      <div>
-        <h5 style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,247,.2);margin-bottom:20px">Services</h5>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Web Design</a>
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">E-Commerce</a>
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">SEO</a>
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Redesign</a>
-          <a href="#services" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">Maintenance</a>
-        </div>
+      <div class="foot-col">
+        <h4>[services]</h4>
+        <ul>
+          <li><a href="#services">Web Design</a></li>
+          <li><a href="#services">E-Commerce</a></li>
+          <li><a href="#services">SEO</a></li>
+          <li><a href="#services">Redesign</a></li>
+          <li><a href="#services">Care Plans</a></li>
+        </ul>
       </div>
-      <div>
-        <h5 style="font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(250,250,247,.2);margin-bottom:20px">Contact</h5>
-        <div style="display:flex;flex-direction:column;gap:12px">
-          <div style="font-size:.875rem;color:rgba(250,250,247,.4)">Johns Creek &amp;<br/>Alpharetta, GA</div>
-          <div style="font-size:.875rem;color:rgba(250,250,247,.4)">Mon–Fri 9am–6pm</div>
-          <a href="tel:7068878030" style="font-size:.875rem;color:rgba(250,250,247,.4);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.4)'">(706) 887-8030</a>
-        </div>
+      <div class="foot-col">
+        <h4>[contact]</h4>
+        <ul>
+          <li><a href="tel:+17068878030">(706) 887-8030</a></li>
+          <li><a href="mailto:MeliaSites@gmail.com">MeliaSites@gmail.com</a></li>
+          <li><a href="#contact">Johns Creek &amp; Alpharetta, GA</a></li>
+        </ul>
       </div>
     </div>
-    <div style="padding:20px 0;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
-      <span style="font-size:.75rem;color:rgba(250,250,247,.18)">© 2026 MeliaSites. All rights reserved.</span>
-      <span style="font-size:.75rem;color:rgba(250,250,247,.18);text-align:center">Proudly serving Johns Creek, Alpharetta &amp; Greater Atlanta</span>
-      <div style="display:flex;align-items:center;gap:16px">
-        <a href="https://www.tiktok.com/@Melia_Sites" target="_blank" rel="noopener noreferrer"
-          style="font-size:.75rem;color:rgba(250,250,247,.18);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s"
-          onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.18)'">
-          <i class="fa-brands fa-tiktok"></i> @Melia_Sites
-        </a>
-        <a href="https://www.instagram.com/melia_sites" target="_blank" rel="noopener noreferrer"
-          style="font-size:.75rem;color:rgba(250,250,247,.18);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s"
-          onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.18)'">
-          <i class="fa-brands fa-instagram"></i> @melia_sites
-        </a>
-        <a href="#" style="font-size:.75rem;color:rgba(250,250,247,.18);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.18)'">Privacy</a>
-        <a href="#" style="font-size:.75rem;color:rgba(250,250,247,.18);text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='rgba(250,250,247,.18)'">Terms</a>
-      </div>
+    <div class="foot-base">
+      <span>© <span id="yr">2026</span> MeliaSites. All rights reserved.</span>
+      <span>Proudly serving Johns Creek, Alpharetta &amp; Greater Atlanta.</span>
     </div>
   </div>
 </footer>
-
-
-<!-- ══ COOKIE BANNER ══════════════════════════════════════════ -->
-<div id="cookie">
-  <div id="cookie-inner">
-    <div style="display:flex;align-items:flex-start;gap:14px;flex:1;min-width:220px">
-      <i class="fa-solid fa-cookie-bite" style="color:var(--amber);font-size:1.1rem;margin-top:2px"></i>
-      <div>
-        <div style="font-size:.82rem;font-weight:700;letter-spacing:.06em;color:var(--cream);margin-bottom:4px">This site uses cookies</div>
-        <p style="font-size:.78rem;color:rgba(250,250,247,.45);line-height:1.5">We use localStorage to save your reviews and preferences across visits.</p>
-      </div>
-    </div>
-    <div style="display:flex;gap:10px;flex-shrink:0">
-      <button onclick="acceptCookies()" style="background:var(--amber);color:#fff;border:none;padding:10px 22px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'Epilogue',sans-serif">Accept</button>
-      <button onclick="declineCookies()" style="background:rgba(255,255,255,.08);color:rgba(250,250,247,.45);border:1px solid rgba(255,255,255,.1);padding:10px 22px;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;font-family:'Epilogue',sans-serif">Decline</button>
-    </div>
-  </div>
-</div>
-
-<button id="up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
-  <i class="fa-solid fa-chevron-up" style="font-size:.75rem"></i>
-</button>
-<div id="toast"></div>
-
-
-<!-- ══ SCRIPTS ════════════════════════════════════════════════ -->
 <script>
-'use strict';
+(function(){
+"use strict";
+var d=document, root=d.documentElement;
+root.classList.add("js");
+var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-/* ─── THEME ─────────────────────────────────────────────── */
-function toggleTheme() {
-  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', t);
-  localStorage.setItem('vs_theme', t);
+/* safe storage — persists theme when deployed, silently no-ops in sandboxed previews */
+var store=(function(){try{var k="__ms";localStorage.setItem(k,"1");localStorage.removeItem(k);return localStorage;}catch(e){return null;}})();
+
+/* ---------- THEME ---------- */
+var metaTheme=d.getElementById("metaTheme");
+function applyTheme(t){
+  root.setAttribute("data-theme",t);
+  if(metaTheme){metaTheme.setAttribute("content",t==="dark"?"#14100A":"#FBF6EE");}
 }
-(function(){ const s = localStorage.getItem('vs_theme'); if(s) document.documentElement.setAttribute('data-theme', s); })();
+var saved=store?store.getItem("ms-theme"):null;
+applyTheme(saved||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+var themeBtn=d.getElementById("themeBtn");
+if(themeBtn){themeBtn.addEventListener("click",function(){
+  var next=root.getAttribute("data-theme")==="dark"?"light":"dark";
+  root.classList.add("theme-snap");
+  applyTheme(next);
+  if(store){try{store.setItem("ms-theme",next);}catch(e){}}
+  setTimeout(function(){root.classList.remove("theme-snap");},220);
+});}
 
-/* ─── SCROLL / NAV ───────────────────────────────────────── */
-const nav = document.getElementById('nav');
-const upBtn = document.getElementById('up');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', scrollY > 20);
-  upBtn.classList.toggle('show', scrollY > 500);
-}, { passive: true });
-
-function toggleMobile() {
-  const m = document.getElementById('m-nav');
-  const i = document.getElementById('hicon');
-  m.classList.toggle('open');
-  i.className = m.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-}
-function closeMobile() {
-  document.getElementById('m-nav').classList.remove('open');
-  document.getElementById('hicon').className = 'fa-solid fa-bars';
-}
-
-/* ─── SCROLL REVEAL ──────────────────────────────────────── */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.sr,.sr-l,.sr-r').forEach(el => obs.observe(el));
-
-/* ─── TOAST ──────────────────────────────────────────────── */
-function showToast(msg, ms = 3800) {
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), ms);
-}
-
-/* ─── COOKIE BANNER ──────────────────────────────────────── */
-const cookieBanner = document.getElementById('cookie');
-function showCookieBanner() { setTimeout(() => cookieBanner.classList.add('show'), 1400); }
-function acceptCookies() {
-  localStorage.setItem('vs_cookies', 'accepted');
-  cookieBanner.classList.remove('show');
-  showToast('Preferences saved');
-}
-function declineCookies() {
-  localStorage.setItem('vs_cookies', 'declined');
-  cookieBanner.classList.remove('show');
-}
-if (!localStorage.getItem('vs_cookies')) showCookieBanner();
-
-/* ══════════════════════════════════════════════════════════
-   REVIEWS SYSTEM — Firebase Firestore (shared for ALL visitors)
-   Reviews are stored in the cloud and visible to everyone,
-   on every device, worldwide, in real-time.
-══════════════════════════════════════════════════════════ */
-
-let _reviews = []; /* in-memory cache from Firestore */
-
-/* Called once the Firebase <script type="module"> above has loaded */
-window.initReviews = function() {
-  if (!window._fbReady) return;
-  /* Real-time listener — new reviews appear instantly for all visitors */
-  const q = window._query(
-    window._collection(window._db, 'reviews'),
-    window._orderBy('date', 'desc')
-  );
-  window._onSnapshot(q, snapshot => {
-    _reviews = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
-    updateBadges();
-    renderPreview();
-    if (document.getElementById('reviews-modal').classList.contains('open')) renderModal();
-  });
-};
-
-/* If Firebase not configured yet, fall back to localStorage so dev still works */
-function loadReviews() {
-  if (window._fbReady) return _reviews;
-  try { return JSON.parse(localStorage.getItem('vs_reviews')) || []; }
-  catch(e) { return []; }
-}
-
-/* ─── Star rating labels ─────────────────────────────────── */
-const STAR_LABELS = ['', 'Poor', 'Fair', 'Good', 'Great', 'Excellent!'];
-let currentRating = 0;
-
-function setRating(val) {
-  currentRating = val;
-  document.getElementById('r-rating').value = val;
-  document.getElementById('rating-label').textContent = STAR_LABELS[val];
-  document.getElementById('rating-label').style.color = 'var(--amber)';
-  document.querySelectorAll('.star-btn').forEach(btn => {
-    const v = parseInt(btn.dataset.val);
-    btn.classList.toggle('active', v <= val);
-    btn.style.color = v <= val ? 'var(--amber)' : 'var(--rule)';
-  });
-}
-
-/* Star hover */
-document.querySelectorAll('.star-btn').forEach(btn => {
-  btn.addEventListener('mouseenter', () => {
-    const v = parseInt(btn.dataset.val);
-    document.querySelectorAll('.star-btn').forEach(b => {
-      b.style.color = parseInt(b.dataset.val) <= v ? 'var(--amber2)' : 'var(--rule)';
-    });
-  });
-  btn.addEventListener('mouseleave', () => {
-    document.querySelectorAll('.star-btn').forEach(b => {
-      b.style.color = parseInt(b.dataset.val) <= currentRating ? 'var(--amber)' : 'var(--rule)';
-    });
-  });
-});
-
-// Character counter
-document.getElementById('r-review').addEventListener('input', function() {
-  document.getElementById('char-count').textContent = this.value.length + ' / 600';
-});
-
-/* Build a star HTML string */
-function starsHTML(rating, size = '1rem') {
-  let s = '';
-  for (let i = 1; i <= 5; i++) {
-    s += `<span style="color:${i<=rating?'var(--amber)':'var(--rule)'};font-size:${size}">★</span>`;
+/* ---------- HEADER SCROLL STATE ---------- */
+var header=d.getElementById("siteHeader"),prog=d.getElementById("progress");
+function onHead(){
+  var y=window.scrollY;
+  if(header){header.classList.toggle("scrolled",y>8);}
+  if(prog){
+    var h=d.documentElement.scrollHeight-window.innerHeight;
+    prog.style.transform="scaleX("+(h>0?Math.min(y/h,1):0).toFixed(4)+")";
   }
-  return s;
+}
+onHead();
+window.addEventListener("scroll",onHead,{passive:true});
+
+/* ---------- MOBILE MENU ---------- */
+var menuBtn=d.getElementById("menuBtn"),menu=d.getElementById("mobileMenu");
+function setMenu(open){
+  if(!menuBtn||!menu){return;}
+  menu.classList.toggle("open",open);
+  menuBtn.setAttribute("aria-expanded",open?"true":"false");
+  menuBtn.setAttribute("aria-label",open?"Close menu":"Open menu");
+  d.body.classList.toggle("no-scroll",open);
+}
+if(menuBtn&&menu){
+  menuBtn.addEventListener("click",function(){setMenu(!menu.classList.contains("open"));});
+  var mlinks=menu.querySelectorAll("a");
+  for(var i=0;i<mlinks.length;i++){mlinks[i].addEventListener("click",function(){setMenu(false);});}
+  d.addEventListener("keydown",function(e){if(e.key==="Escape"){setMenu(false);}});
 }
 
-/* Format date */
-function fmtDate(iso) {
-  return new Date(iso).toLocaleDateString('en-US', { month:'short', day:'numeric', year:'numeric' });
-}
-
-/* Escape HTML */
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-}
-
-/* Render modal reviews list */
-function renderModal() {
-  const revs    = loadReviews();
-  const list    = document.getElementById('reviews-list');
-  const empty   = document.getElementById('reviews-empty');
-  const countBadge = document.getElementById('modal-count-badge');
-  const avgRow  = document.getElementById('modal-avg-row');
-  const starsAvg = document.getElementById('modal-stars-avg');
-  const avgText = document.getElementById('modal-avg-text');
-
-  countBadge.textContent = revs.length + (revs.length===1?' Review':' Reviews');
-
-  if (!revs.length) {
-    list.innerHTML = '';
-    empty.style.display = 'block';
-    avgRow.style.display = 'none';
-    return;
+/* ---------- TYPED HERO WORDS (looping) ---------- */
+var typed=d.getElementById("typed");
+if(typed&&!reduce){
+  var words=["ringing.","buzzing.","blowing up."];
+  var wi=0,ci=words[0].length,deleting=true;
+  function typeStep(){
+    var w=words[wi];
+    if(deleting){
+      ci--;
+      typed.textContent=w.slice(0,ci);
+      if(ci<=0){deleting=false;wi=(wi+1)%words.length;setTimeout(typeStep,430);return;}
+      setTimeout(typeStep,34);
+    }else{
+      ci++;
+      typed.textContent=w.slice(0,ci);
+      if(ci>=w.length){deleting=true;setTimeout(typeStep,2400);return;}
+      setTimeout(typeStep,66+Math.random()*52);
+    }
   }
-  empty.style.display = 'none';
-  avgRow.style.display = 'flex';
-
-  const avg = revs.reduce((s,r) => s+r.rating, 0) / revs.length;
-  starsAvg.innerHTML = starsHTML(Math.round(avg), '.85rem');
-  avgText.textContent = avg.toFixed(1) + ' average from ' + revs.length + ' review' + (revs.length>1?'s':'');
-
-  list.innerHTML = revs.map(r => `
-    <div class="rev-card">
-      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:12px">
-          <div style="width:40px;height:40px;background:var(--amber);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.9rem;flex-shrink:0">
-            ${escHtml(r.name).charAt(0).toUpperCase()}
-          </div>
-          <div>
-            <div style="font-weight:700;font-size:.875rem;color:var(--ink);transition:color .4s">${escHtml(r.name)}</div>
-            ${r.role?`<div style="font-size:.72rem;color:var(--ink3);margin-top:1px;transition:color .4s">${escHtml(r.role)}</div>`:''}
-          </div>
-        </div>
-        <div style="text-align:right">
-          <div style="display:flex;gap:2px">${starsHTML(r.rating,'.9rem')}</div>
-          <div style="font-size:.68rem;color:var(--ink3);margin-top:3px;transition:color .4s">${fmtDate(r.date)}</div>
-        </div>
-      </div>
-      <p style="font-family:'Lora',serif;font-size:.9rem;line-height:1.75;color:var(--ink3);transition:color .4s">"${escHtml(r.text)}"</p>
-    </div>
-  `).join('');
+  setTimeout(typeStep,2700);
 }
 
-/* Render 2-review preview panel */
-function renderPreview() {
-  const revs    = loadReviews();
-  const preview = document.getElementById('recent-preview');
-  const empty   = document.getElementById('preview-empty');
+/* ---------- SCROLL REVEALS ---------- */
+var rv=[].slice.call(d.querySelectorAll(".rv"));
+if("IntersectionObserver" in window&&!reduce){
+  var io=new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      if(entries[i].isIntersecting){entries[i].target.classList.add("in");io.unobserve(entries[i].target);}
+    }
+  },{threshold:0.14,rootMargin:"0px 0px -6% 0px"});
+  for(var r=0;r<rv.length;r++){io.observe(rv[r]);}
+}else{
+  for(var r2=0;r2<rv.length;r2++){rv[r2].classList.add("in");}
+}
 
-  if (!revs.length) {
-    preview.style.display = 'none';
-    empty.style.display   = 'block';
-    return;
+/* ---------- STAT COUNTERS ---------- */
+function runCounter(el){
+  var target=parseFloat(el.getAttribute("data-target")||"0");
+  var prefix=el.getAttribute("data-prefix")||"";
+  var suffix=el.getAttribute("data-suffix")||"";
+  var dec=(String(target).split(".")[1]||"").length;
+  if(reduce){el.textContent=prefix+target.toFixed(dec)+suffix;return;}
+  var dur=1300,t0=null;
+  function frame(ts){
+    if(t0===null){t0=ts;}
+    var p=Math.min((ts-t0)/dur,1);
+    var e=1-Math.pow(1-p,3);
+    el.textContent=prefix+(target*e).toFixed(dec)+suffix;
+    if(p<1){requestAnimationFrame(frame);}
   }
-  empty.style.display   = 'none';
-  preview.style.display = 'flex';
-
-  preview.innerHTML = revs.slice(0,2).map(r => `
-    <div style="padding:20px 24px;border-bottom:1px solid var(--rule);transition:background .2s"
-      onmouseover="this.style.background='var(--amber-g)'" onmouseout="this.style.background='transparent'">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px;flex-wrap:wrap">
-        <div style="display:flex;align-items:center;gap:8px">
-          <div style="width:28px;height:28px;background:var(--amber);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.75rem;flex-shrink:0">
-            ${escHtml(r.name).charAt(0).toUpperCase()}
-          </div>
-          <div>
-            <span style="font-weight:700;font-size:.8rem;color:var(--ink);transition:color .4s">${escHtml(r.name)}</span>
-            ${r.role?`<span style="font-size:.72rem;color:var(--ink3);margin-left:6px;transition:color .4s">· ${escHtml(r.role)}</span>`:''}
-          </div>
-        </div>
-        <div style="display:flex;gap:1px">${starsHTML(r.rating,'.72rem')}</div>
-      </div>
-      <p style="font-family:'Lora',serif;font-size:.82rem;line-height:1.65;color:var(--ink3);transition:color .4s">"${escHtml(r.text.length>120?r.text.slice(0,120)+'…':r.text)}"</p>
-    </div>
-  `).join('');
+  requestAnimationFrame(frame);
+}
+var nums=[].slice.call(d.querySelectorAll(".num[data-target]"));
+if("IntersectionObserver" in window){
+  var io2=new IntersectionObserver(function(entries){
+    for(var i=0;i<entries.length;i++){
+      if(entries[i].isIntersecting){runCounter(entries[i].target);io2.unobserve(entries[i].target);}
+    }
+  },{threshold:0.6});
+  for(var c=0;c<nums.length;c++){io2.observe(nums[c]);}
+}else{
+  for(var c2=0;c2<nums.length;c2++){runCounter(nums[c2]);}
 }
 
-/* Update nav badge and review button count */
-function updateBadges() {
-  const count = loadReviews().length;
-  document.getElementById('nav-badge').textContent = count;
-  document.getElementById('review-btn-count').textContent = count;
+/* ---------- PARALLAX (desktop + motion-ok only) ---------- */
+var plx=[].slice.call(d.querySelectorAll("[data-plx]"));
+if(!reduce&&window.matchMedia("(min-width: 900px)").matches&&plx.length){
+  var ticking=false;
+  var para=function(){
+    var y=window.scrollY;
+    for(var i=0;i<plx.length;i++){
+      var s=parseFloat(plx[i].getAttribute("data-plx"))||0;
+      plx[i].style.transform="translate3d(0,"+(y*s).toFixed(1)+"px,0)";
+    }
+    ticking=false;
+  };
+  window.addEventListener("scroll",function(){
+    if(!ticking){requestAnimationFrame(para);ticking=true;}
+  },{passive:true});
+  para();
 }
 
-/* Open / close reviews modal */
-function openReviews(e) {
-  if (e) e.preventDefault();
-  renderModal();
-  document.getElementById('reviews-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeReviews() {
-  document.getElementById('reviews-modal').classList.remove('open');
-  document.body.style.overflow = '';
-}
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeReviews(); });
+/* ---------- CURSOR FOLLOWER (desktop) ---------- */
+(function(){
+  if(reduce){return;}
+  if(!window.matchMedia("(hover: hover) and (pointer: fine)").matches){return;}
+  var dot=d.getElementById("curDot"),ring=d.getElementById("curRing");
+  if(!dot||!ring){return;}
+  var mx=-100,my=-100,rx=-100,ry=-100,shown=false;
+  d.addEventListener("mousemove",function(e){
+    mx=e.clientX;my=e.clientY;
+    if(!shown){shown=true;rx=mx;ry=my;d.body.classList.add("cursor-on");requestAnimationFrame(loop);}
+    var hot=e.target&&e.target.closest?e.target.closest("a,button"):null;
+    d.body.classList.toggle("cursor-hot",!!hot);
+  },{passive:true});
+  d.addEventListener("mouseleave",function(){shown=false;d.body.classList.remove("cursor-on");});
+  function loop(){
+    if(!shown){return;}
+    dot.style.transform="translate("+mx+"px,"+my+"px)";
+    rx+=(mx-rx)*0.16;ry+=(my-ry)*0.16;
+    ring.style.transform="translate("+rx.toFixed(1)+"px,"+ry.toFixed(1)+"px)";
+    requestAnimationFrame(loop);
+  }
+})();
 
-/* Submit review → Firestore (shared globally) or localStorage fallback */
-function submitReview(e) {
-  e.preventDefault();
-  const name   = document.getElementById('r-name').value.trim();
-  const role   = document.getElementById('r-role').value.trim();
-  const rating = parseInt(document.getElementById('r-rating').value);
-  const text   = document.getElementById('r-review').value.trim();
-
-  if (!name || !text) { showToast('Please fill in your name and review.'); return; }
-  if (!rating)        { showToast('Please select a star rating.');         return; }
-
-  const btn  = document.getElementById('rbtn');
-  const btxt = document.getElementById('rbtn-text');
-  const bico = document.getElementById('rbtn-icon');
-  const ok   = document.getElementById('review-ok');
-
-  btn.disabled = true;
-  btxt.textContent = 'Saving…';
-  bico.className   = 'fa-solid fa-spinner fa-spin';
-  btn.style.opacity = '.7';
-
-  const review = { name, role, rating, text, date: new Date().toISOString() };
-
-  if (window._fbReady) {
-    /* Save to Firestore — instantly visible to ALL visitors worldwide */
-    window._addDoc(window._collection(window._db, 'reviews'), review)
-      .then(() => {
-        btn.style.display = 'none';
-        ok.style.display  = 'block';
-        showToast('Your review is now live for everyone — thank you!');
-      })
-      .catch(() => {
-        btxt.textContent = 'Error — try again';
-        bico.className   = 'fa-solid fa-triangle-exclamation';
-        btn.style.background = '#b91c1c';
-        btn.disabled = false;
-        setTimeout(() => {
-          btxt.textContent = 'Submit Review';
-          bico.className   = 'fa-solid fa-star';
-          btn.style.background = '';
-          btn.style.opacity = '1';
-        }, 3000);
+/* ---------- 3D TILT ON SHOWCASE CARDS ---------- */
+(function(){
+  if(reduce){return;}
+  if(!window.matchMedia("(hover: hover) and (min-width: 940px)").matches){return;}
+  var cards=[].slice.call(d.querySelectorAll(".proj"));
+  for(var i=0;i<cards.length;i++){
+    (function(card){
+      card.addEventListener("mousemove",function(e){
+        var r=card.getBoundingClientRect();
+        var px=(e.clientX-r.left)/r.width-0.5;
+        var py=(e.clientY-r.top)/r.height-0.5;
+        card.classList.add("tilting");
+        card.style.setProperty("--ry",(px*7).toFixed(2)+"deg");
+        card.style.setProperty("--rx",(-py*7).toFixed(2)+"deg");
       });
-  } else {
-    /* Fallback: localStorage if Firebase not yet configured */
-    setTimeout(() => {
-      const arr = (() => { try { return JSON.parse(localStorage.getItem('vs_reviews')) || []; } catch{ return []; } })();
-      arr.push({ id: Date.now(), ...review });
-      localStorage.setItem('vs_reviews', JSON.stringify(arr));
-      _reviews = [...arr].reverse();
-      updateBadges();
-      renderPreview();
-      btn.style.display = 'none';
-      ok.style.display  = 'block';
-      showToast('Saved locally (connect Firebase to share with everyone).');
-    }, 800);
+      card.addEventListener("mouseleave",function(){
+        card.classList.remove("tilting");
+        card.style.setProperty("--rx","0deg");
+        card.style.setProperty("--ry","0deg");
+      });
+    })(cards[i]);
   }
-}
+})();
 
-/* Init — Firebase module calls initReviews() once loaded */
-updateBadges();
-renderPreview();
+/* ---------- FOOTER YEAR ---------- */
+var yr=d.getElementById("yr");
+if(yr){yr.textContent=String(new Date().getFullYear());}
+})();
 </script>
+
 </body>
 </html>
